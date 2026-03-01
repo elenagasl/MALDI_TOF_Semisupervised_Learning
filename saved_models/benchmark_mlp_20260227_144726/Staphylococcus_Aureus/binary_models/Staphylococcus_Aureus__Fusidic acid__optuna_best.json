@@ -1,0 +1,11 @@
+{
+  "best_params": {
+    "activation": "identity",
+    "solver": "adam",
+    "lr": 5.3237019751895146e-05,
+    "layer1": 336,
+    "layer2": 122,
+    "layer3": 183
+  },
+  "best_value": 0.9283869597728589
+}

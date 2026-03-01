@@ -1,0 +1,11 @@
+{
+  "best_params": {
+    "activation": "relu",
+    "solver": "adam",
+    "lr": 8.427725284801677e-05,
+    "layer1": 406,
+    "layer2": 453,
+    "layer3": 237
+  },
+  "best_value": 0.8907689795566679
+}

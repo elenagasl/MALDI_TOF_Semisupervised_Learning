@@ -1,0 +1,17 @@
+{
+  "pickle": "/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/data/DRIAMS_A_AMR_paper_replication.pkl",
+  "outdir": "/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/saved_models",
+  "n_jobs": 5,
+  "test_size": 0.2,
+  "random_state": 42,
+  "n_cv": 5,
+  "n_trials": 200,
+  "min_pattern_count": 5,
+  "max_epochs": 1200,
+  "patience": 50,
+  "batch_size": 128,
+  "cpu_only": false,
+  "skip_duplicates_removal": false,
+  "print_folds": false,
+  "device": "cpu"
+}
