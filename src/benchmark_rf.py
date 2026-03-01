@@ -31,14 +31,6 @@ warnings.filterwarnings("ignore")
 PICKLE_PATH = "../data/DRIAMS_A_AMR_paper_replication.pkl"
 OUTPUT_DIR = "results_benchmark1_single_split"
 
-TEST_SIZE = 0.20
-RANDOM_STATE_SPLIT = 42
-
-N_CV = 5
-N_ITER = 200
-N_JOBS = 10
-N_POINTS = 1
-
 # OJO: aquí he dejado el search space como el del github que tú pegaste:
 # n_estimators: 1..1000, max_depth: 1..10, min_samples_leaf: 1..10
 # Si quieres el del paper (100..1000, max_depth 100..101, etc.) lo cambiamos en 10 segundos.
@@ -142,12 +134,6 @@ def main():
     print(f"Total samples after duplicate removal: {full_df.shape[0]}", flush=True)
 
     # Species-specific antibiotic panels (matching your pickle species names)
-    species_antibiotics = {
-        "Staphylococcus_Aureus": ["Oxacillin", "Clindamycin", "Fusidic acid"],
-        "Escherichia_Coli": ["Ciprofloxacin", "Ceftriaxone", "Piperacillin-Tazobactam", "Cefepime"],
-        "Klebsiella_Pneumoniae": ["Ciprofloxacin", "Ceftriaxone", "Imipenem", "Meropenem"],
-        "Pseudomonas_Aeruginosa": ["Ciprofloxacin", "Imipenem", "Meropenem"],
-    }
 
     results_all = {}
 
