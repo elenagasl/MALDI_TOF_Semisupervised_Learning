@@ -1,0 +1,90 @@
+[INFO] Output: saved_models/benchmark_mlp_20260304_112923
+[INFO] Device: cpu
+[INFO] Loaded X=(14925, 6000), amr=(14925, 9), species=(14925,), antibiotics=9
+Removing duplicates:   0%|          | 0/14925 [00:00<?, ?it/s]Removing duplicates:   9%|▊         | 1288/14925 [00:00<00:01, 12877.40it/s]Removing duplicates:  17%|█▋        | 2578/14925 [00:00<00:00, 12885.48it/s]Removing duplicates:  26%|██▌       | 3868/14925 [00:00<00:00, 12888.44it/s]Removing duplicates:  35%|███▍      | 5162/14925 [00:00<00:00, 12906.11it/s]Removing duplicates:  43%|████▎     | 6459/14925 [00:00<00:00, 12926.76it/s]Removing duplicates:  52%|█████▏    | 7756/14925 [00:00<00:00, 12939.21it/s]Removing duplicates:  61%|██████    | 9053/14925 [00:00<00:00, 12948.26it/s]Removing duplicates:  69%|██████▉   | 10350/14925 [00:00<00:00, 12952.88it/s]Removing duplicates:  78%|███████▊  | 11647/14925 [00:00<00:00, 12957.42it/s]Removing duplicates:  87%|████████▋ | 12943/14925 [00:01<00:00, 12956.94it/s]Removing duplicates:  95%|█████████▌| 14241/14925 [00:01<00:00, 12961.76it/s]                                                                             [INFO] After duplicates removal: X=(14922, 6000)
+
+================ STARTING SPECIES PIPELINES ================
+
+[Parallel(n_jobs=5)]: Using backend LokyBackend with 5 concurrent workers.
+
+==========================================================================================
+[START] Species: Staphylococcus_Aureus
+         Antibiotics: ['Oxacillin', 'Clindamycin', 'Fusidic acid']
+==========================================================================================
+[Staphylococcus_Aureus] Loading + filtering...
+
+==========================================================================================
+[START] Species: Pseudomonas_Aeruginosa
+         Antibiotics: ['Ciprofloxacin', 'Imipenem', 'Meropenem']
+==========================================================================================
+[Pseudomonas_Aeruginosa] Loading + filtering...
+[Staphylococcus_Aureus] isolates: 3791 -> after ab NaNs: 3556 -> after feature NaNs: 3556
+[Staphylococcus_Aureus] Building LPS patterns...
+
+==========================================================================================
+[START] Species: Klebsiella_Pneumoniae
+         Antibiotics: ['Ciprofloxacin', 'Ceftriaxone', 'Imipenem', 'Meropenem']
+==========================================================================================
+[Klebsiella_Pneumoniae] Loading + filtering...
+
+==========================================================================================
+[START] Species: Escherichia_Coli
+         Antibiotics: ['Ciprofloxacin', 'Ceftriaxone', 'Piperacillin-Tazobactam', 'Cefepime']
+==========================================================================================
+[Escherichia_Coli] Loading + filtering...
+[Pseudomonas_Aeruginosa] isolates: 3274 -> after ab NaNs: 2262 -> after feature NaNs: 2262
+[Pseudomonas_Aeruginosa] Building LPS patterns...
+[Klebsiella_Pneumoniae] isolates: 2869 -> after ab NaNs: 2813 -> after feature NaNs: 2813
+[Klebsiella_Pneumoniae] Building LPS patterns...
+[Escherichia_Coli] isolates: 4988 -> after ab NaNs: 4661 -> after feature NaNs: 4661
+[Escherichia_Coli] Building LPS patterns...
+[Pseudomonas_Aeruginosa] patterns: 7 -> kept: 6 (min_count=11)
+[Pseudomonas_Aeruginosa] isolates after pattern filtering: 2257
+[Pseudomonas_Aeruginosa] Train/test split stratified by pattern (test_size=0.2)...
+[Pseudomonas_Aeruginosa] Train size: 1805 | Test size: 452
+[Pseudomonas_Aeruginosa] StandardScaler fit on train...
+[Staphylococcus_Aureus] patterns: 8 -> kept: 8 (min_count=11)
+[Staphylococcus_Aureus] isolates after pattern filtering: 3556
+[Staphylococcus_Aureus] Train/test split stratified by pattern (test_size=0.2)...
+[Staphylococcus_Aureus] Train size: 2844 | Test size: 712
+[Staphylococcus_Aureus] StandardScaler fit on train...
+
+[Pseudomonas_Aeruginosa] ===== LPS multiclass training (patterns) =====
+[Pseudomonas_Aeruginosa] LPS classes (patterns) on train: 6
+[I 2026-03-04 11:29:29,205] A new study created in memory with name: no-name-4f3afac7-8938-4061-9394-681628088f1b
+Pseudomonas_Aeruginosa | LPS | Optuna:   0%|          | 0/200 [00:00<?, ?it/s][Klebsiella_Pneumoniae] patterns: 9 -> kept: 5 (min_count=11)
+[Klebsiella_Pneumoniae] isolates after pattern filtering: 2795
+[Klebsiella_Pneumoniae] Train/test split stratified by pattern (test_size=0.2)...
+[Klebsiella_Pneumoniae] Train size: 2236 | Test size: 559
+[Klebsiella_Pneumoniae] StandardScaler fit on train...
+
+[Staphylococcus_Aureus] ===== LPS multiclass training (patterns) =====
+[Staphylococcus_Aureus] LPS classes (patterns) on train: 8
+[I 2026-03-04 11:29:29,257] A new study created in memory with name: no-name-0af43d80-08e5-4086-b0b5-9e577993ac11
+Staphylococcus_Aureus | LPS | Optuna:   0%|          | 0/200 [00:00<?, ?it/s]
+[Klebsiella_Pneumoniae] ===== LPS multiclass training (patterns) =====
+[Klebsiella_Pneumoniae] LPS classes (patterns) on train: 5
+[I 2026-03-04 11:29:29,301] A new study created in memory with name: no-name-efdd35e6-6374-494b-87fa-fdd831658994
+Klebsiella_Pneumoniae | LPS | Optuna:   0%|          | 0/200 [00:00<?, ?it/s][Escherichia_Coli] patterns: 13 -> kept: 11 (min_count=11)
+[Escherichia_Coli] isolates after pattern filtering: 4647
+[Escherichia_Coli] Train/test split stratified by pattern (test_size=0.2)...
+[Escherichia_Coli] Train size: 3717 | Test size: 930
+[Escherichia_Coli] StandardScaler fit on train...
+
+[Escherichia_Coli] ===== LPS multiclass training (patterns) =====
+[Escherichia_Coli] LPS classes (patterns) on train: 11
+[I 2026-03-04 11:29:29,550] A new study created in memory with name: no-name-22d5fd3d-c00a-4964-8324-fcf3a205adb9
+Escherichia_Coli | LPS | Optuna:   0%|          | 0/200 [00:00<?, ?it/s][I 2026-03-04 11:30:17,639] Trial 0 finished with value: 0.2397798007499506 and parameters: {'activation': 'logistic', 'solver': 'sgd', 'lr': 1.7073967431528114e-06, 'layer1': 435, 'layer2': 305, 'layer3': 357}. Best is trial 0 with value: 0.2397798007499506.
+Pseudomonas_Aeruginosa | LPS | Optuna:   0%|          | 1/200 [00:48<2:40:38, 48.43s/it]Pseudomonas_Aeruginosa | LPS | Optuna:   0%|          | 1/200 [00:48<2:40:38, 48.43s/it, best=0.24][I 2026-03-04 11:30:34,726] Trial 0 finished with value: 0.8028140446769442 and parameters: {'activation': 'logistic', 'solver': 'sgd', 'lr': 1.7073967431528114e-06, 'layer1': 435, 'layer2': 305, 'layer3': 357}. Best is trial 0 with value: 0.8028140446769442.
+Klebsiella_Pneumoniae | LPS | Optuna:   0%|          | 1/200 [01:05<3:36:59, 65.42s/it]Klebsiella_Pneumoniae | LPS | Optuna:   0%|          | 1/200 [01:05<3:36:59, 65.42s/it, best=0.803][I 2026-03-04 11:30:36,468] Trial 0 finished with value: 0.5554784585661602 and parameters: {'activation': 'logistic', 'solver': 'sgd', 'lr': 1.7073967431528114e-06, 'layer1': 435, 'layer2': 305, 'layer3': 357}. Best is trial 0 with value: 0.5554784585661602.
+Staphylococcus_Aureus | LPS | Optuna:   0%|          | 1/200 [01:07<3:42:54, 67.21s/it]Staphylococcus_Aureus | LPS | Optuna:   0%|          | 1/200 [01:07<3:42:54, 67.21s/it, best=0.555][I 2026-03-04 11:31:03,445] Trial 0 finished with value: 0.4136178789079459 and parameters: {'activation': 'logistic', 'solver': 'sgd', 'lr': 1.7073967431528114e-06, 'layer1': 435, 'layer2': 305, 'layer3': 357}. Best is trial 0 with value: 0.4136178789079459.
+Escherichia_Coli | LPS | Optuna:   0%|          | 1/200 [01:33<5:11:24, 93.89s/it]Escherichia_Coli | LPS | Optuna:   0%|          | 1/200 [01:33<5:11:24, 93.89s/it, best=0.414][I 2026-03-04 11:31:06,200] Trial 1 finished with value: 0.8261898244308833 and parameters: {'activation': 'logistic', 'solver': 'adam', 'lr': 1.6480446427978994e-05, 'layer1': 267, 'layer2': 222, 'layer3': 152}. Best is trial 1 with value: 0.8261898244308833.
+Pseudomonas_Aeruginosa | LPS | Optuna:   1%|          | 2/200 [01:36<2:40:04, 48.51s/it, best=0.24]Pseudomonas_Aeruginosa | LPS | Optuna:   1%|          | 2/200 [01:36<2:40:04, 48.51s/it, best=0.826][I 2026-03-04 11:31:30,155] Trial 1 finished with value: 0.8746470562584285 and parameters: {'activation': 'logistic', 'solver': 'adam', 'lr': 1.6480446427978994e-05, 'layer1': 267, 'layer2': 222, 'layer3': 152}. Best is trial 1 with value: 0.8746470562584285.
+Klebsiella_Pneumoniae | LPS | Optuna:   1%|          | 2/200 [02:00<3:16:29, 59.54s/it, best=0.803]Klebsiella_Pneumoniae | LPS | Optuna:   1%|          | 2/200 [02:00<3:16:29, 59.54s/it, best=0.875][I 2026-03-04 11:31:51,861] Trial 1 finished with value: 0.8016455484651599 and parameters: {'activation': 'logistic', 'solver': 'adam', 'lr': 1.6480446427978994e-05, 'layer1': 267, 'layer2': 222, 'layer3': 152}. Best is trial 1 with value: 0.8016455484651599.
+Staphylococcus_Aureus | LPS | Optuna:   1%|          | 2/200 [02:22<3:57:40, 72.02s/it, best=0.555]Staphylococcus_Aureus | LPS | Optuna:   1%|          | 2/200 [02:22<3:57:40, 72.02s/it, best=0.802][I 2026-03-04 11:31:54,605] Trial 2 finished with value: 0.8273167534489261 and parameters: {'activation': 'identity', 'solver': 'adam', 'lr': 6.290644294586145e-06, 'layer1': 262, 'layer2': 300, 'layer3': 32}. Best is trial 2 with value: 0.8273167534489261.
+Pseudomonas_Aeruginosa | LPS | Optuna:   2%|▏         | 3/200 [02:25<2:39:06, 48.46s/it, best=0.826]Pseudomonas_Aeruginosa | LPS | Optuna:   2%|▏         | 3/200 [02:25<2:39:06, 48.46s/it, best=0.827][I 2026-03-04 11:32:20,503] Trial 2 finished with value: 0.8746470562584285 and parameters: {'activation': 'identity', 'solver': 'adam', 'lr': 6.290644294586145e-06, 'layer1': 262, 'layer2': 300, 'layer3': 32}. Best is trial 1 with value: 0.8746470562584285.
+Klebsiella_Pneumoniae | LPS | Optuna:   2%|▏         | 3/200 [02:51<3:01:42, 55.34s/it, best=0.875]Klebsiella_Pneumoniae | LPS | Optuna:   2%|▏         | 3/200 [02:51<3:01:42, 55.34s/it, best=0.875][I 2026-03-04 11:32:27,363] Trial 3 finished with value: 0.45893580428152925 and parameters: {'activation': 'relu', 'solver': 'sgd', 'lr': 1.6536937182824424e-05, 'layer1': 57, 'layer2': 345, 'layer3': 226}. Best is trial 2 with value: 0.8273167534489261.
+Pseudomonas_Aeruginosa | LPS | Optuna:   2%|▏         | 4/200 [02:58<2:18:03, 42.26s/it, best=0.827]Pseudomonas_Aeruginosa | LPS | Optuna:   2%|▏         | 4/200 [02:58<2:18:03, 42.26s/it, best=0.827][I 2026-03-04 11:32:31,361] Trial 1 finished with value: 0.7388067228206201 and parameters: {'activation': 'logistic', 'solver': 'adam', 'lr': 1.6480446427978994e-05, 'layer1': 267, 'layer2': 222, 'layer3': 152}. Best is trial 1 with value: 0.7388067228206201.
+Escherichia_Coli | LPS | Optuna:   1%|          | 2/200 [03:01<4:58:14, 90.38s/it, best=0.414]Escherichia_Coli | LPS | Optuna:   1%|          | 2/200 [03:01<4:58:14, 90.38s/it, best=0.739][I 2026-03-04 11:32:50,443] Trial 3 finished with value: 0.6566845262562959 and parameters: {'activation': 'relu', 'solver': 'sgd', 'lr': 1.6536937182824424e-05, 'layer1': 57, 'layer2': 345, 'layer3': 226}. Best is trial 1 with value: 0.8746470562584285.
+Klebsiella_Pneumoniae | LPS | Optuna:   2%|▏         | 4/200 [03:21<2:28:01, 45.32s/it, best=0.875]Klebsiella_Pneumoniae | LPS | Optuna:   2%|▏         | 4/200 [03:21<2:28:01, 45.32s/it, best=0.875][I 2026-03-04 11:32:57,427] Trial 2 finished with value: 0.8039575327422405 and parameters: {'activation': 'identity', 'solver': 'adam', 'lr': 6.290644294586145e-06, 'layer1': 262, 'layer2': 300, 'layer3': 32}. Best is trial 2 with value: 0.8039575327422405.
+Staphylococcus_Aureus | LPS | Optuna:   2%|▏         | 3/200 [03:28<3:46:47, 69.07s/it, best=0.802]Staphylococcus_Aureus | LPS | Optuna:   2%|▏         | 3/200 [03:28<3:46:47, 69.07s/it, best=0.804]

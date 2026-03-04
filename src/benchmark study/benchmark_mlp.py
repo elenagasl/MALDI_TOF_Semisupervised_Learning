@@ -515,8 +515,8 @@ def run_species_pipeline(
     scaler = StandardScaler()
     X_train_raw = X[train_idx]
     X_test_raw = X[test_idx]
-    X_train = scaler.fit_transform(X_train_raw)
-    X_test = scaler.transform(X_test_raw)
+    X_train = X_train_raw #scaler.fit_transform(X_train_raw)
+    X_test = X_test_raw #scaler.transform(X_test_raw)
 
     dump(scaler, os.path.join(sp_dir, "scaler.joblib"))
     np.save(os.path.join(sp_dir, "train_idx.npy"), train_idx)
@@ -525,128 +525,128 @@ def run_species_pipeline(
     # -------------------------
     # 9) Binary models per antibiotic
     # -------------------------
-    print(f"\n[{species}] ===== Binary training (one model per antibiotic) =====", flush=True)
-    binary_rows: List[Dict[str, Any]] = []
-    binary_models_dir = os.path.join(sp_dir, "binary_models")
-    os.makedirs(binary_models_dir, exist_ok=True)
+    # print(f"\n[{species}] ===== Binary training (one model per antibiotic) =====", flush=True)
+    # binary_rows: List[Dict[str, Any]] = []
+    # binary_models_dir = os.path.join(sp_dir, "binary_models")
+    # os.makedirs(binary_models_dir, exist_ok=True)
 
-    for ab in tqdm(ab_list, desc=f"{species} | Binary antibiotics", file=sys.stdout, mininterval=0.5):
-        y_train = df_sp.loc[train_idx, ab].astype(int).values
-        y_test = df_sp.loc[test_idx, ab].astype(int).values
+    # for ab in tqdm(ab_list, desc=f"{species} | Binary antibiotics", file=sys.stdout, mininterval=0.5):
+    #     y_train = df_sp.loc[train_idx, ab].astype(int).values
+    #     y_test = df_sp.loc[test_idx, ab].astype(int).values
 
-        print(f"\n[{species} | {ab}] Optuna search starting... (trials={n_trials}, cv={n_cv})", flush=True)
+    #     print(f"\n[{species} | {ab}] Optuna search starting... (trials={n_trials}, cv={n_cv})", flush=True)
 
-        skf = StratifiedKFold(n_splits=n_cv, shuffle=True, random_state=random_state)
+    #     skf = StratifiedKFold(n_splits=n_cv, shuffle=True, random_state=random_state)
 
-        def objective(trial: optuna.Trial) -> float:
-            params = suggest_hparams_paper(trial)
-            fold_scores = []
-            for fold_id, (tr_i, va_i) in enumerate(skf.split(X_train, y_train)):
-                if print_folds:
-                    print(f"    [{species} | {ab}] Fold {fold_id+1}/{n_cv}", flush=True)
-                X_tr, X_va = X_train[tr_i], X_train[va_i]
-                y_tr, y_va = y_train[tr_i], y_train[va_i]
+    #     def objective(trial: optuna.Trial) -> float:
+    #         params = suggest_hparams_paper(trial)
+    #         fold_scores = []
+    #         for fold_id, (tr_i, va_i) in enumerate(skf.split(X_train, y_train)):
+    #             if print_folds:
+    #                 print(f"    [{species} | {ab}] Fold {fold_id+1}/{n_cv}", flush=True)
+    #             X_tr, X_va = X_train[tr_i], X_train[va_i]
+    #             y_tr, y_va = y_train[tr_i], y_train[va_i]
 
-                model = MLPBinary(
-                    input_dim=X_train.shape[1],
-                    layer1=params["layer1"],
-                    layer2=params["layer2"],
-                    layer3=params["layer3"],
-                    activation=params["activation"],
-                ).to(device)
-                optim = make_optimizer(params, model)
+    #             model = MLPBinary(
+    #                 input_dim=X_train.shape[1],
+    #                 layer1=params["layer1"],
+    #                 layer2=params["layer2"],
+    #                 layer3=params["layer3"],
+    #                 activation=params["activation"],
+    #             ).to(device)
+    #             optim = make_optimizer(params, model)
 
-                _, best_val = train_binary_with_early_stopping(
-                    model, optim,
-                    X_tr, y_tr, X_va, y_va,
-                    device=device,
-                    max_epochs=max_epochs,
-                    patience=patience,
-                    batch_size=batch_size,
-                )
-                fold_scores.append(best_val)
-            return float(np.mean(fold_scores))
+    #             _, best_val = train_binary_with_early_stopping(
+    #                 model, optim,
+    #                 X_tr, y_tr, X_va, y_va,
+    #                 device=device,
+    #                 max_epochs=max_epochs,
+    #                 patience=patience,
+    #                 batch_size=batch_size,
+    #             )
+    #             fold_scores.append(best_val)
+    #         return float(np.mean(fold_scores))
 
-        study = optuna.create_study(
-            direction="maximize",
-            sampler=optuna.samplers.TPESampler(seed=optuna_sampler_seed),
-        )
-        _optuna_with_tqdm(study, objective, n_trials=n_trials, desc=f"{species} | {ab} | Optuna")
+    #     study = optuna.create_study(
+    #         direction="maximize",
+    #         sampler=optuna.samplers.TPESampler(seed=optuna_sampler_seed),
+    #     )
+    #     _optuna_with_tqdm(study, objective, n_trials=n_trials, desc=f"{species} | {ab} | Optuna")
 
-        best_params = study.best_params
-        best_cv_wf1 = float(study.best_value)
+    #     best_params = study.best_params
+    #     best_cv_wf1 = float(study.best_value)
 
-        print(f"[{species} | {ab}] [OPTUNA DONE] Best CV WF1={best_cv_wf1:.4f} | params={best_params}", flush=True)
+    #     print(f"[{species} | {ab}] [OPTUNA DONE] Best CV WF1={best_cv_wf1:.4f} | params={best_params}", flush=True)
 
-        print(f"[{species} | {ab}] Retraining with validation early stopping (10% split)...", flush=True)
-        X_trf, X_vaf, y_trf, y_vaf = train_test_split(
-            X_train, y_train,
-            test_size=0.1,
-            stratify=y_train,
-            random_state=random_state,
-        )
+    #     print(f"[{species} | {ab}] Retraining with validation early stopping (10% split)...", flush=True)
+    #     X_trf, X_vaf, y_trf, y_vaf = train_test_split(
+    #         X_train, y_train,
+    #         test_size=0.1,
+    #         stratify=y_train,
+    #         random_state=random_state,
+    #     )
 
-        final_model = MLPBinary(
-            input_dim=X_train.shape[1],
-            layer1=best_params["layer1"],
-            layer2=best_params["layer2"],
-            layer3=best_params["layer3"],
-            activation=best_params["activation"],
-        ).to(device)
-        final_optim = make_optimizer(best_params, final_model)
+    #     final_model = MLPBinary(
+    #         input_dim=X_train.shape[1],
+    #         layer1=best_params["layer1"],
+    #         layer2=best_params["layer2"],
+    #         layer3=best_params["layer3"],
+    #         activation=best_params["activation"],
+    #     ).to(device)
+    #     final_optim = make_optimizer(best_params, final_model)
 
-        _, best_val_wf1 = train_binary_with_early_stopping(
-            final_model, final_optim,
-            X_trf, y_trf, X_vaf, y_vaf,
-            device=device,
-            max_epochs=max_epochs,
-            patience=patience,
-            batch_size=batch_size,
-        )
+    #     _, best_val_wf1 = train_binary_with_early_stopping(
+    #         final_model, final_optim,
+    #         X_trf, y_trf, X_vaf, y_vaf,
+    #         device=device,
+    #         max_epochs=max_epochs,
+    #         patience=patience,
+    #         batch_size=batch_size,
+    #     )
 
-        final_model.eval()
-        Xte_t = torch.tensor(X_test, dtype=torch.float32).to(device)
-        y_pred = _predict_binary(final_model, Xte_t)
+    #     final_model.eval()
+    #     Xte_t = torch.tensor(X_test, dtype=torch.float32).to(device)
+    #     y_pred = _predict_binary(final_model, Xte_t)
 
-        wf1 = wf1_binary(y_test, y_pred)
-        acc = float(accuracy_score(y_test, y_pred))
-        hl = float(hamming_loss(y_test, y_pred))
+    #     wf1 = wf1_binary(y_test, y_pred)
+    #     acc = float(accuracy_score(y_test, y_pred))
+    #     hl = float(hamming_loss(y_test, y_pred))
 
-        print(f"[{species} | {ab}] [TEST] WF1={wf1:.4f} | ACC={acc:.4f} | HL={hl:.4f} | best_val_WF1={best_val_wf1:.4f}", flush=True)
+    #     print(f"[{species} | {ab}] [TEST] WF1={wf1:.4f} | ACC={acc:.4f} | HL={hl:.4f} | best_val_WF1={best_val_wf1:.4f}", flush=True)
 
-        model_path = os.path.join(binary_models_dir, f"{species}__{ab}__binary.pt")
-        torch.save(
-            {
-                "model_state_dict": final_model.state_dict(),
-                "best_params": best_params,
-                "best_cv_wf1": best_cv_wf1,
-                "best_retrain_val_wf1": best_val_wf1,
-                "species": species,
-                "antibiotic": ab,
-            },
-            model_path,
-        )
+    #     model_path = os.path.join(binary_models_dir, f"{species}__{ab}__binary.pt")
+    #     torch.save(
+    #         {
+    #             "model_state_dict": final_model.state_dict(),
+    #             "best_params": best_params,
+    #             "best_cv_wf1": best_cv_wf1,
+    #             "best_retrain_val_wf1": best_val_wf1,
+    #             "species": species,
+    #             "antibiotic": ab,
+    #         },
+    #         model_path,
+    #     )
 
-        pred_path = os.path.join(binary_models_dir, f"{species}__{ab}__test_preds.csv")
-        pd.DataFrame({"index": test_idx, "y_true": y_test.astype(int), "y_pred": y_pred.astype(int)}).to_csv(pred_path, index=False)
+    #     pred_path = os.path.join(binary_models_dir, f"{species}__{ab}__test_preds.csv")
+    #     pd.DataFrame({"index": test_idx, "y_true": y_test.astype(int), "y_pred": y_pred.astype(int)}).to_csv(pred_path, index=False)
 
-        with open(os.path.join(binary_models_dir, f"{species}__{ab}__optuna_best.json"), "w") as f:
-            json.dump({"best_params": best_params, "best_value": best_cv_wf1}, f, indent=2)
+    #     with open(os.path.join(binary_models_dir, f"{species}__{ab}__optuna_best.json"), "w") as f:
+    #         json.dump({"best_params": best_params, "best_value": best_cv_wf1}, f, indent=2)
 
-        binary_rows.append(
-            {
-                "Species": species,
-                "Task": "binary",
-                "Antibiotic": ab,
-                "CV_WF1": best_cv_wf1,
-                "Retrain_Val_WF1": best_val_wf1,
-                "Test_WF1": wf1,
-                "Test_ACC": acc,
-                "Test_HL": hl,
-                **{f"hp_{k}": v for k, v in best_params.items()},
-                "model_path": model_path,
-            }
-        )
+    #     binary_rows.append(
+    #         {
+    #             "Species": species,
+    #             "Task": "binary",
+    #             "Antibiotic": ab,
+    #             "CV_WF1": best_cv_wf1,
+    #             "Retrain_Val_WF1": best_val_wf1,
+    #             "Test_WF1": wf1,
+    #             "Test_ACC": acc,
+    #             "Test_HL": hl,
+    #             **{f"hp_{k}": v for k, v in best_params.items()},
+    #             "model_path": model_path,
+    #         }
+    #     )
 
     # -------------------------
     # 10) LPS multiclass (patterns)
