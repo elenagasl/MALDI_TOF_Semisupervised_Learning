@@ -526,7 +526,7 @@ def run_species_pipeline(
     # 9) Binary models per antibiotic
     # -------------------------
     # print(f"\n[{species}] ===== Binary training (one model per antibiotic) =====", flush=True)
-    # binary_rows: List[Dict[str, Any]] = []
+    binary_rows: List[Dict[str, Any]] = []
     # binary_models_dir = os.path.join(sp_dir, "binary_models")
     # os.makedirs(binary_models_dir, exist_ok=True)
 

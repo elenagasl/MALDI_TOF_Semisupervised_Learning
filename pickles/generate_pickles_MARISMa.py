@@ -264,40 +264,26 @@ def main(
 
 if __name__ == "__main__":
 
-    name = "Klebsiella_AMR"
+    name = "MARISMA_whole_pipeline"
 
     species_list = [
+        ("Staphylococcus", "Aureus"),
+        ("Escherichia", "Coli"),
         ("Klebsiella", "Pneumoniae"),
+        ("Pseudomonas", "Aeruginosa"),
     ]
 
     amr_antibiotics = [
-        "Ampicillin",
-        "Gentamicin",
-        "Ertapenem",
-        "Trimethoprim/Sulfamethoxazole",
-        "Cefepime",
-        "Cefotaxime",
-        "Ciprofloxacin",
-        "Tobramycin",
-        "Ceftazidime",
-        "Cefuroxime",
-        "Piperacillin/Tazobactam",
-        "Imipenem",
-        "Amoxicillin/Clavulanic acid",
-        "Amikacin",
-        "Colistin",
-        "Levofloxacin",
-        "Fosfomycin",
-        "Aztreonam",
-        "Meropenem",
-        "Piperacillin",
-        "Ticarcillin",
-        "Cefixime",
-        "Ceftazidime/Avibactam",
-        "Ceftolozane/Tazobactam",
-        "Norfloxacin",
-        "Nitrofurantoin",
-        "Ampicillin/Sulbactam",
+        
+         # S. aureus
+        "Oxacillin", "Clindamycin", "Fusidic acid",
+
+        # E. coli
+        "Ciprofloxacin", "Ceftriaxone",
+        "Piperacillin-Tazobactam", "Cefepime",
+
+        # K. pneumoniae
+        "Imipenem", "Meropenem"
     ]
 
     amr_year = None
@@ -310,7 +296,7 @@ if __name__ == "__main__":
         BaselineCorrecter(method="SNIP", snip_n_iter=20),
         StdThresholder(factor=1.0),
         Trimmer(min=2000, max=20000),
-        Binner(start=2000, stop=20000, step=3),
+        Binner(start=2000, stop=20000, step=3, aggregation="mean"),
         LogScaler(base=10),
     )
 

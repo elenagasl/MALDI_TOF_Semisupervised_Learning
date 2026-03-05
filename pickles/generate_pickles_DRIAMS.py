@@ -89,9 +89,9 @@ def collect_species(dataset_path, preprocess_pipeline, species_list, logger,
     logger.info("Loading DRIAMS manager...")
     manager = DRIAMS_Manager(dataset_path)
 
-    logger.info("Querying DRIAMS_A only...")
+    logger.info("Querying DRIAMS_A B AND C...")
     spectra_dict = manager.query_spectra_dict(
-        centers=["DRIAMS_A"],
+        centers=["DRIAMS_A", "DRIAMS_B", "DRIAMS_C"],
         genus_species=species_list
     )
 
@@ -106,7 +106,7 @@ def collect_species(dataset_path, preprocess_pipeline, species_list, logger,
             dataset_path,
             antibiotics=amr_antibiotics,
             years=[str(amr_year)] if amr_year else None,
-            centers=["DRIAMS_A"],
+            centers=["DRIAMS_A", "DRIAMS_B", "DRIAMS_C"],
             logger=logger
         )
 
@@ -205,7 +205,7 @@ def main(name, preprocess_pipeline, species_list,
 # ==========================================================
 if __name__ == "__main__":
 
-    name = "whole_pipeline"
+    name = "whole_pipeline_23_DRIAMS"
 
     species_list = [
         ("Staphylococcus", "Aureus"),

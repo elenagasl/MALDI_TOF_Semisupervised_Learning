@@ -1,0 +1,3 @@
+Species,Task,Antibiotic,CV_WF1,Retrain_Val_WF1,Test_WF1,Test_ACC,Test_HL,hp_activation,hp_solver,hp_lr,hp_layer1,hp_layer2,hp_layer3,model_path,n_patterns
+Klebsiella_Pneumoniae,lps_multiclass,ALL,0.9335316167236047,0.9388439670921463,0.935322870633587,0.9418604651162792,0.05813953488372092,tanh,adam,7.693489492906515e-05,94,313,99,saved_models2/benchmark_mlp_20260304_195812/Klebsiella_Pneumoniae/lps_model/Klebsiella_Pneumoniae__lps.pt,5.0
+Klebsiella_Pneumoniae,direct_multilabel,ALL,0.9327253118571418,0.9373792422120127,0.9307413997348278,0.9391771019677997,0.060822898032200354,tanh,adam,9.459131060843723e-05,75,90,318,saved_models2/benchmark_mlp_20260304_195812/Klebsiella_Pneumoniae/multilabel_model/Klebsiella_Pneumoniae__multilabel.pt,

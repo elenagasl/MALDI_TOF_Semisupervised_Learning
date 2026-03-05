@@ -1,0 +1,3 @@
+Species,Task,Antibiotic,CV_WF1,Retrain_Val_WF1,Test_WF1,Test_ACC,Test_HL,hp_activation,hp_solver,hp_lr,hp_layer1,hp_layer2,hp_layer3,model_path,n_patterns
+Staphylococcus_Aureus,lps_multiclass,ALL,0.895291438550062,0.899686455753716,0.8912655029886355,0.900749063670412,0.09925093632958802,identity,adam,0.0008078817205716293,289,242,189,saved_models2/benchmark_mlp_20260304_195812/Staphylococcus_Aureus/lps_model/Staphylococcus_Aureus__lps.pt,8.0
+Staphylococcus_Aureus,direct_multilabel,ALL,0.8936680613721473,0.9019421530753906,0.8877887039742588,0.8965355805243446,0.10346441947565543,identity,adam,2.7646086843997938e-05,385,421,58,saved_models2/benchmark_mlp_20260304_195812/Staphylococcus_Aureus/multilabel_model/Staphylococcus_Aureus__multilabel.pt,
