@@ -264,7 +264,7 @@ def main(
 
 if __name__ == "__main__":
 
-    name = "MARISMA_whole_pipeline"
+    name = "MARISMA_half_pipeline"
 
     species_list = [
         ("Staphylococcus", "Aureus"),
@@ -291,13 +291,13 @@ if __name__ == "__main__":
     change_names = {}
 
     preprocess_pipeline = SequentialPreprocessor(
-        VarStabilizer(method="sqrt"),
-        Smoother(halfwindow=10),
-        BaselineCorrecter(method="SNIP", snip_n_iter=20),
-        StdThresholder(factor=1.0),
-        Trimmer(min=2000, max=20000),
-        Binner(start=2000, stop=20000, step=3, aggregation="mean"),
-        LogScaler(base=10),
+        #VarStabilizer(method="sqrt"),
+        #Smoother(halfwindow=10),
+        #BaselineCorrecter(method="SNIP", snip_n_iter=20),
+        #StdThresholder(factor=1.0),
+        Trimmer(min=2000, max=10000),
+        Binner(start=2000, stop=10000, step=5, aggregation="mean"),
+        #LogScaler(base=10),
     )
 
     main(

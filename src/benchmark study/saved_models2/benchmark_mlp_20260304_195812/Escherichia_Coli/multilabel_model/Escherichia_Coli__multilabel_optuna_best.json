@@ -1,0 +1,11 @@
+{
+  "best_params": {
+    "activation": "tanh",
+    "solver": "adam",
+    "lr": 1.7708879893278444e-05,
+    "layer1": 477,
+    "layer2": 456,
+    "layer3": 73
+  },
+  "best_value": 0.8646284220353448
+}
