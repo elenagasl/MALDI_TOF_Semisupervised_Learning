@@ -1,0 +1,33 @@
+{
+  "species": "Staphylococcus_Aureus",
+  "status": "ok",
+  "n_samples_train": 2476,
+  "n_samples_test": 620,
+  "n_antibiotics": 21,
+  "antibiotics": [
+    "Amoxicillin-Clavulanic acid",
+    "Cefazolin",
+    "Cefepime",
+    "Ceftriaxone",
+    "Cefuroxime",
+    "Ciprofloxacin",
+    "Clindamycin",
+    "Cotrimoxazole",
+    "Daptomycin",
+    "Erythromycin",
+    "Fusidic acid",
+    "Gentamicin",
+    "Imipenem",
+    "Mupirocin",
+    "Oxacillin",
+    "Penicillin",
+    "Piperacillin-Tazobactam",
+    "Rifampicin",
+    "Teicoplanin",
+    "Tetracycline",
+    "Tigecycline"
+  ],
+  "binary_mean_wf1": 0.9010869058935564,
+  "lps_mean_wf1": 0.8903126941782713,
+  "multilabel_mean_wf1": 0.8993145300366374
+}

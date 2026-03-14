@@ -1,0 +1,8 @@
+{
+  "activation": "logistic",
+  "solver": "adam",
+  "learning_rate": 0.0014170803996645458,
+  "layer1": 344,
+  "layer2": 343,
+  "layer3": 436
+}

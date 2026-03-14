@@ -1,0 +1,8 @@
+{
+  "activation": "tanh",
+  "solver": "adam",
+  "learning_rate": 0.0002092819140348318,
+  "layer1": 143,
+  "layer2": 140,
+  "layer3": 448
+}

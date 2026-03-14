@@ -1,0 +1,9 @@
+{
+  "species": "Staphylococcus_Epidermidis",
+  "model": "binary",
+  "n_antibiotics": 22,
+  "n_antibiotics_evaluable": 18,
+  "mean_acc": 0.8341479309221245,
+  "mean_hl": 0.16585206907787553,
+  "mean_wf1": 0.833091579672962
+}

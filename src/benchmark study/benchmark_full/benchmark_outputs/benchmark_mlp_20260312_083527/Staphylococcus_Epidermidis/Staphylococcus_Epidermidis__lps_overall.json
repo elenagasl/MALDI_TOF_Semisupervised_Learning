@@ -1,0 +1,13 @@
+{
+  "species": "Staphylococcus_Epidermidis",
+  "model": "lps_multiclass",
+  "n_antibiotics": 22,
+  "n_antibiotics_evaluable": 18,
+  "mean_acc": 0.8418051482567612,
+  "mean_hl": 0.15819485174323883,
+  "mean_wf1": 0.8423241933310036,
+  "median_wf1": 0.8573558669278787,
+  "cv_best_wf1": 0.35524278305596857,
+  "val_best_wf1": 0.34642139947252265,
+  "best_epoch": 29
+}

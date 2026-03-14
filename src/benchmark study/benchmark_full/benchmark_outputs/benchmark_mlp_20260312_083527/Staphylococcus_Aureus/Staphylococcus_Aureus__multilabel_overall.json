@@ -1,0 +1,13 @@
+{
+  "species": "Staphylococcus_Aureus",
+  "model": "direct_multilabel",
+  "n_antibiotics": 21,
+  "n_antibiotics_evaluable": 16,
+  "mean_acc": 0.9070564516129032,
+  "mean_hl": 0.09294354838709677,
+  "mean_wf1": 0.8993145300366374,
+  "median_wf1": 0.9022154319067571,
+  "cv_best_wf1": 0.9094036598319287,
+  "val_best_wf1": 0.9061988911264443,
+  "best_epoch": 16
+}

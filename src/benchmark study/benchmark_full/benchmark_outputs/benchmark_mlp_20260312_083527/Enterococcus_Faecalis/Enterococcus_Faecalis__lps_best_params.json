@@ -1,0 +1,8 @@
+{
+  "activation": "identity",
+  "solver": "sgd",
+  "learning_rate": 0.0069204732026686595,
+  "layer1": 45,
+  "layer2": 151,
+  "layer3": 229
+}

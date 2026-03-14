@@ -83,21 +83,21 @@ warnings.filterwarnings("ignore")
 DEFAULT_PICKLE = "/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/data/COMBINED_MARISMA_DRIAMS.pkl"
 
 TARGET_SPECIES = [
-    "Staphylococcus_Aureus",
-    "Staphylococcus_Epidermidis",
-    "Escherichia_Coli",
-    "Klebsiella_Pneumoniae",
-    "Pseudomonas_Aeruginosa",
+    #"Staphylococcus_Aureus",
+    #"Staphylococcus_Epidermidis",
+   # "Escherichia_Coli",
+    #"Klebsiella_Pneumoniae",
+    #"Pseudomonas_Aeruginosa",
     "Enterobacter_Cloacae",
-    "Proteus_Mirabilis",
+   #"Proteus_Mirabilis",
     "Staphylococcus_Hominis",
     "Serratia_Marcescens",
     "Staphylococcus_Capitis",
-    "Enterococcus_Faecium",
+    #"Enterococcus_Faecium",
     "Klebsiella_Oxytoca",
     "Klebsiella_Variicola",
     "Citrobacter_Koseri",
-    "Enterococcus_Faecalis",
+    #"Enterococcus_Faecalis",
     "Staphylococcus_Lugdunensis",
     "Citrobacter_Freundii",
     "Morganella_Morganii",
@@ -113,7 +113,7 @@ TARGET_SPECIES = [
 SEED = 42
 TEST_SIZE = 0.20
 VAL_SIZE_IN_TRAIN = 0.20
-MIN_COMPLETE_SAMPLES = 1500
+MIN_COMPLETE_SAMPLES = 500
 MIN_PATTERN_COUNT = 11
 
 N_TRIALS = 200

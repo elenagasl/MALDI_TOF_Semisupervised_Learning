@@ -1,0 +1,32 @@
+{
+  "species": "Staphylococcus_Epidermidis",
+  "n_total_species_samples": 5731,
+  "n_complete_samples_before_pattern_filter": 3770,
+  "n_samples_after_pattern_filter": 3410,
+  "selected_antibiotics": [
+    "Amoxicillin-Clavulanic acid",
+    "Cefazolin",
+    "Cefepime",
+    "Ceftriaxone",
+    "Cefuroxime",
+    "Ciprofloxacin",
+    "Clindamycin",
+    "Cotrimoxazole",
+    "Daptomycin",
+    "Erythromycin",
+    "Fusidic acid",
+    "Gentamicin",
+    "Imipenem",
+    "Linezolid",
+    "Meropenem",
+    "Oxacillin",
+    "Penicillin",
+    "Piperacillin-Tazobactam",
+    "Rifampicin",
+    "Tetracycline",
+    "Tigecycline",
+    "Vancomycin"
+  ],
+  "dropped_constant_antibiotics": [],
+  "min_pattern_count": 11
+}

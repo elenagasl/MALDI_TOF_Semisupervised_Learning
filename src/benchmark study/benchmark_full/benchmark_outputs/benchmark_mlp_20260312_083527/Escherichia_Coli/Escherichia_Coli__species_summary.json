@@ -1,0 +1,26 @@
+{
+  "species": "Escherichia_Coli",
+  "status": "ok",
+  "n_samples_train": 3267,
+  "n_samples_test": 817,
+  "n_antibiotics": 14,
+  "antibiotics": [
+    "Amikacin",
+    "Amoxicillin-Clavulanic acid",
+    "Cefepime",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": 0.8590777654529311,
+  "lps_mean_wf1": 0.8474419783808098,
+  "multilabel_mean_wf1": 0.8647520675627286
+}

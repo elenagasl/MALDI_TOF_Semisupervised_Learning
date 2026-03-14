@@ -1,0 +1,26 @@
+{
+  "species": "Enterococcus_Faecalis",
+  "n_total_species_samples": 4632,
+  "n_complete_samples_before_pattern_filter": 2725,
+  "n_samples_after_pattern_filter": 2620,
+  "selected_antibiotics": [
+    "Ampicillin",
+    "Ciprofloxacin",
+    "Fosfomycin",
+    "Levofloxacin",
+    "Minocycline",
+    "Nitrofurantoin",
+    "Norfloxacin",
+    "Penicillin",
+    "Pristinamycin",
+    "Teicoplanin",
+    "Tetracycline",
+    "Vancomycin"
+  ],
+  "dropped_constant_antibiotics": [
+    "Daptomycin",
+    "Imipenem",
+    "Linezolid"
+  ],
+  "min_pattern_count": 11
+}
