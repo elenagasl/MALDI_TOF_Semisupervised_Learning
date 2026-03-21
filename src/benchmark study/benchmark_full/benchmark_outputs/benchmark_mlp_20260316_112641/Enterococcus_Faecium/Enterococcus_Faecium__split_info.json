@@ -1,0 +1,13 @@
+{
+  "train_size": 896,
+  "test_size": 224,
+  "n_train_patterns": 5,
+  "n_test_patterns": 5,
+  "pattern_to_index": {
+    "000000": 0,
+    "100000": 1,
+    "110000": 2,
+    "110001": 3,
+    "110101": 4
+  }
+}

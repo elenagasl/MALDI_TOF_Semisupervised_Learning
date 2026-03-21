@@ -1,0 +1,9 @@
+{
+  "species": "Morganella_Morganii",
+  "model": "binary",
+  "n_antibiotics": 7,
+  "n_antibiotics_evaluable": 5,
+  "mean_acc": 0.8814159292035398,
+  "mean_hl": 0.11858407079646019,
+  "mean_wf1": 0.8766877760971861
+}

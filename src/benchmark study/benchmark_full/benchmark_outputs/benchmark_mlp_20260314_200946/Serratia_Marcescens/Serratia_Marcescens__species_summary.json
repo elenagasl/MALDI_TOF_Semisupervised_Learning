@@ -1,0 +1,17 @@
+{
+  "species": "Serratia_Marcescens",
+  "status": "ok",
+  "n_samples_train": 652,
+  "n_samples_test": 164,
+  "n_antibiotics": 5,
+  "antibiotics": [
+    "Amikacin",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Imipenem"
+  ],
+  "binary_mean_wf1": 0.8828329066858207,
+  "lps_mean_wf1": 0.9067023065362054,
+  "multilabel_mean_wf1": 0.8984083189191536
+}

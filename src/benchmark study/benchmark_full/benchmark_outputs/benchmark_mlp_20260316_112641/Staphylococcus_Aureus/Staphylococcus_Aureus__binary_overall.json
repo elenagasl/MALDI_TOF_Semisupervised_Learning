@@ -1,0 +1,9 @@
+{
+  "species": "Staphylococcus_Aureus",
+  "model": "binary",
+  "n_antibiotics": 21,
+  "n_antibiotics_evaluable": 16,
+  "mean_acc": 0.9122983870967742,
+  "mean_hl": 0.08770161290322581,
+  "mean_wf1": 0.9057610870262873
+}

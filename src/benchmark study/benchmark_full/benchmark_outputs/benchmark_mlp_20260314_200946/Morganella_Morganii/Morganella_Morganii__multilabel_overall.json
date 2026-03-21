@@ -1,0 +1,13 @@
+{
+  "species": "Morganella_Morganii",
+  "model": "direct_multilabel",
+  "n_antibiotics": 7,
+  "n_antibiotics_evaluable": 5,
+  "mean_acc": 0.8743362831858408,
+  "mean_hl": 0.1256637168141593,
+  "mean_wf1": 0.8668366770051623,
+  "median_wf1": 0.8582533652473705,
+  "cv_best_wf1": 0.8751218617335217,
+  "val_best_wf1": 0.8675935965608976,
+  "best_epoch": 25
+}

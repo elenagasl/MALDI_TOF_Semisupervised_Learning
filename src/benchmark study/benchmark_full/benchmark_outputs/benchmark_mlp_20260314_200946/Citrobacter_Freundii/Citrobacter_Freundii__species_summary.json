@@ -1,0 +1,22 @@
+{
+  "species": "Citrobacter_Freundii",
+  "status": "ok",
+  "n_samples_train": 401,
+  "n_samples_test": 101,
+  "n_antibiotics": 10,
+  "antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": 0.8812679721079635,
+  "lps_mean_wf1": 0.8860012552017998,
+  "multilabel_mean_wf1": 0.8937957166080132
+}

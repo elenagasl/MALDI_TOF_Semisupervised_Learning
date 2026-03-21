@@ -1,0 +1,9 @@
+{
+  "species": "Serratia_Marcescens",
+  "model": "binary",
+  "n_antibiotics": 5,
+  "n_antibiotics_evaluable": 2,
+  "mean_acc": 0.899390243902439,
+  "mean_hl": 0.10060975609756098,
+  "mean_wf1": 0.8828329066858207
+}

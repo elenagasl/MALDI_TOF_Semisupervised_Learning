@@ -1,0 +1,22 @@
+{
+  "species": "Pseudomonas_Aeruginosa",
+  "status": "ok",
+  "n_samples_train": 1581,
+  "n_samples_test": 396,
+  "n_antibiotics": 10,
+  "antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": 0.922931904398783,
+  "lps_mean_wf1": 0.9228770076281939,
+  "multilabel_mean_wf1": 0.92389185555357
+}

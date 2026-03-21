@@ -1,0 +1,28 @@
+{
+  "pickle_path": "/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/data/COMBINED_MARISMA_DRIAMS.pkl",
+  "X_shape": [
+    66832,
+    6000
+  ],
+  "n_samples": 66832,
+  "n_antibiotics_payload": 104,
+  "target_species": [
+    "Staphylococcus_Aureus",
+    "Staphylococcus_Epidermidis",
+    "Escherichia_Coli",
+    "Klebsiella_Pneumoniae",
+    "Pseudomonas_Aeruginosa",
+    "Proteus_Mirabilis",
+    "Enterococcus_Faecium"
+  ],
+  "seed": 42,
+  "test_size": 0.2,
+  "val_size_in_train": 0.2,
+  "min_complete_samples": 500,
+  "min_pattern_count": 11,
+  "n_trials": 200,
+  "n_jobs": 5,
+  "max_epochs": 1200,
+  "patience": 50,
+  "batch_size": 64
+}

@@ -1,0 +1,13 @@
+{
+  "species": "Proteus_Mirabilis",
+  "model": "direct_multilabel",
+  "n_antibiotics": 12,
+  "n_antibiotics_evaluable": 6,
+  "mean_acc": 0.7674418604651163,
+  "mean_hl": 0.23255813953488372,
+  "mean_wf1": 0.736783571411073,
+  "median_wf1": 0.7433750745378652,
+  "cv_best_wf1": 0.7808510491813161,
+  "val_best_wf1": 0.7560200939939764,
+  "best_epoch": 22
+}

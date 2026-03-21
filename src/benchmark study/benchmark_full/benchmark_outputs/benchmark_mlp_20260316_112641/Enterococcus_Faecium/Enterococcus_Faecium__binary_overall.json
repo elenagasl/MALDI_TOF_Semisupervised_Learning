@@ -1,0 +1,9 @@
+{
+  "species": "Enterococcus_Faecium",
+  "model": "binary",
+  "n_antibiotics": 6,
+  "n_antibiotics_evaluable": 4,
+  "mean_acc": 0.953125,
+  "mean_hl": 0.046875,
+  "mean_wf1": 0.9476506967973213
+}

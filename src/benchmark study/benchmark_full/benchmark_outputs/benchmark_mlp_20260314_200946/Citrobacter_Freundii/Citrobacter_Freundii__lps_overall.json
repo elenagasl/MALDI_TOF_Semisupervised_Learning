@@ -1,0 +1,13 @@
+{
+  "species": "Citrobacter_Freundii",
+  "model": "lps_multiclass",
+  "n_antibiotics": 10,
+  "n_antibiotics_evaluable": 5,
+  "mean_acc": 0.9029702970297031,
+  "mean_hl": 0.09702970297029703,
+  "mean_wf1": 0.8860012552017998,
+  "median_wf1": 0.93602050560386,
+  "cv_best_wf1": 0.6351536721907092,
+  "val_best_wf1": 0.5949426034221356,
+  "best_epoch": 59
+}

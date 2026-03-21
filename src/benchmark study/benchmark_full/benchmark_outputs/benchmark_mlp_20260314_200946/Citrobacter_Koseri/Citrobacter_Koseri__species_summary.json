@@ -1,0 +1,20 @@
+{
+  "species": "Citrobacter_Koseri",
+  "status": "ok",
+  "n_samples_train": 530,
+  "n_samples_test": 133,
+  "n_antibiotics": 8,
+  "antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Ertapenem",
+    "Meropenem",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": NaN,
+  "lps_mean_wf1": NaN,
+  "multilabel_mean_wf1": NaN
+}

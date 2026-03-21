@@ -1,0 +1,9 @@
+antibiotic,acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible,status
+Cefepime,,,,,,105,0,105,constant_ground_truth
+Ceftazidime,,,,,,105,0,105,constant_ground_truth
+Ceftriaxone,,,,,,105,0,105,constant_ground_truth
+Ciprofloxacin,,,,,,105,0,105,constant_ground_truth
+Colistin,,,,,,105,0,105,constant_ground_truth
+Cotrimoxazole,0.9714285714285714,0.02857142857142857,0.9573498964803312,0.9436734693877551,0.9714285714285714,105,3,102,ok
+Ertapenem,,,,,,105,0,105,constant_ground_truth
+Levofloxacin,,,,,,105,0,105,constant_ground_truth

@@ -1,0 +1,13 @@
+{
+  "species": "Escherichia_Coli",
+  "model": "lps_multiclass",
+  "n_antibiotics": 14,
+  "n_antibiotics_evaluable": 10,
+  "mean_acc": 0.8529987760097919,
+  "mean_hl": 0.1470012239902081,
+  "mean_wf1": 0.8418679695420211,
+  "median_wf1": 0.8890750788334295,
+  "cv_best_wf1": 0.4808814757878911,
+  "val_best_wf1": 0.4673916020969708,
+  "best_epoch": 48
+}

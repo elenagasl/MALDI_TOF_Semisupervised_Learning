@@ -1,0 +1,13 @@
+{
+  "species": "Enterococcus_Faecium",
+  "model": "direct_multilabel",
+  "n_antibiotics": 6,
+  "n_antibiotics_evaluable": 4,
+  "mean_acc": 0.9553571428571429,
+  "mean_hl": 0.044642857142857144,
+  "mean_wf1": 0.9487559904621692,
+  "median_wf1": 0.9394935027563791,
+  "cv_best_wf1": 0.9677283265349712,
+  "val_best_wf1": 0.9629392848072684,
+  "best_epoch": 21
+}

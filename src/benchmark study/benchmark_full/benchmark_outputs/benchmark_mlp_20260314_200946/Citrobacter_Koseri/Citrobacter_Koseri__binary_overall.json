@@ -1,0 +1,9 @@
+{
+  "species": "Citrobacter_Koseri",
+  "model": "binary",
+  "n_antibiotics": 8,
+  "n_antibiotics_evaluable": 0,
+  "mean_acc": NaN,
+  "mean_hl": NaN,
+  "mean_wf1": NaN
+}

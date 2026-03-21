@@ -1,0 +1,19 @@
+{
+  "species": "Morganella_Morganii",
+  "status": "ok",
+  "n_samples_train": 452,
+  "n_samples_test": 113,
+  "n_antibiotics": 7,
+  "antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Imipenem",
+    "Levofloxacin",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": 0.8766877760971861,
+  "lps_mean_wf1": 0.8664897237653261,
+  "multilabel_mean_wf1": 0.8668366770051623
+}

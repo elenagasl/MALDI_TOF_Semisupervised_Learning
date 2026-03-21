@@ -1,0 +1,20 @@
+{
+  "species": "Pseudomonas_Aeruginosa",
+  "n_total_species_samples": 5355,
+  "n_complete_samples_before_pattern_filter": 2095,
+  "n_samples_after_pattern_filter": 1977,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "dropped_constant_antibiotics": [],
+  "min_pattern_count": 11
+}

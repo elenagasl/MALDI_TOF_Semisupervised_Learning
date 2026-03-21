@@ -1,0 +1,13 @@
+{
+  "species": "Enterobacter_Cloacae",
+  "model": "lps_multiclass",
+  "n_antibiotics": 12,
+  "n_antibiotics_evaluable": 7,
+  "mean_acc": 0.8530805687203792,
+  "mean_hl": 0.14691943127962087,
+  "mean_wf1": 0.855816382724084,
+  "median_wf1": 0.885119475943525,
+  "cv_best_wf1": 0.7361024475082831,
+  "val_best_wf1": 0.6957311901140166,
+  "best_epoch": 24
+}

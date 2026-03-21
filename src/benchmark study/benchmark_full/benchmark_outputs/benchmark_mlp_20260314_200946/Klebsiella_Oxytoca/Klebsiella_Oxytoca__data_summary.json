@@ -1,0 +1,22 @@
+{
+  "species": "Klebsiella_Oxytoca",
+  "n_total_species_samples": 1239,
+  "n_complete_samples_before_pattern_filter": 686,
+  "n_samples_after_pattern_filter": 661,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Amoxicillin-Clavulanic acid",
+    "Cefepime",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Tobramycin"
+  ],
+  "dropped_constant_antibiotics": [
+    "Levofloxacin",
+    "Piperacillin-Tazobactam"
+  ],
+  "min_pattern_count": 11
+}

@@ -1,0 +1,20 @@
+{
+  "species": "Citrobacter_Freundii",
+  "n_total_species_samples": 647,
+  "n_complete_samples_before_pattern_filter": 549,
+  "n_samples_after_pattern_filter": 502,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Tobramycin"
+  ],
+  "dropped_constant_antibiotics": [],
+  "min_pattern_count": 11
+}

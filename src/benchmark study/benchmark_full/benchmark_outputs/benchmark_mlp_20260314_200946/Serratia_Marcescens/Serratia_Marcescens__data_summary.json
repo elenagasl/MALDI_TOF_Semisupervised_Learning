@@ -1,0 +1,20 @@
+{
+  "species": "Serratia_Marcescens",
+  "n_total_species_samples": 1253,
+  "n_complete_samples_before_pattern_filter": 838,
+  "n_samples_after_pattern_filter": 816,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Imipenem"
+  ],
+  "dropped_constant_antibiotics": [
+    "Cefepime",
+    "Levofloxacin",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "min_pattern_count": 11
+}

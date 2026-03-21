@@ -1,0 +1,18 @@
+{
+  "species": "Enterococcus_Faecium",
+  "status": "ok",
+  "n_samples_train": 896,
+  "n_samples_test": 224,
+  "n_antibiotics": 6,
+  "antibiotics": [
+    "Imipenem",
+    "Levofloxacin",
+    "Linezolid",
+    "Teicoplanin",
+    "Tigecycline",
+    "Vancomycin"
+  ],
+  "binary_mean_wf1": 0.9476506967973213,
+  "lps_mean_wf1": 0.9500630296920867,
+  "multilabel_mean_wf1": 0.9487559904621692
+}

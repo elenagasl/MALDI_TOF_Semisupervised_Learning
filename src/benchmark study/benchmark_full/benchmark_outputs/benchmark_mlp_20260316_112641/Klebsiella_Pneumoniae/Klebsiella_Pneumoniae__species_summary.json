@@ -1,0 +1,32 @@
+{
+  "species": "Klebsiella_Pneumoniae",
+  "status": "ok",
+  "n_samples_train": 1431,
+  "n_samples_test": 358,
+  "n_antibiotics": 20,
+  "antibiotics": [
+    "Amikacin",
+    "Ampicillin",
+    "Aztreonam",
+    "Cefepime",
+    "Cefixime",
+    "Cefotaxime",
+    "Ceftazidime",
+    "Cefuroxime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Ertapenem",
+    "Fosfomycin",
+    "Gentamicin",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Nitrofurantoin",
+    "Norfloxacin",
+    "Piperacillin",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": 0.8839588701131853,
+  "lps_mean_wf1": 0.873173179360409,
+  "multilabel_mean_wf1": 0.8792349774987372
+}

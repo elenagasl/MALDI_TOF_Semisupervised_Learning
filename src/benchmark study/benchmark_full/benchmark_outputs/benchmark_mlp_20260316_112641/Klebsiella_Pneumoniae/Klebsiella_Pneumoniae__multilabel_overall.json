@@ -1,0 +1,13 @@
+{
+  "species": "Klebsiella_Pneumoniae",
+  "model": "direct_multilabel",
+  "n_antibiotics": 20,
+  "n_antibiotics_evaluable": 18,
+  "mean_acc": 0.8926132836747362,
+  "mean_hl": 0.10738671632526381,
+  "mean_wf1": 0.8792349774987372,
+  "median_wf1": 0.8854500429885617,
+  "cv_best_wf1": 0.8913134732397645,
+  "val_best_wf1": 0.8859672838660064,
+  "best_epoch": 72
+}

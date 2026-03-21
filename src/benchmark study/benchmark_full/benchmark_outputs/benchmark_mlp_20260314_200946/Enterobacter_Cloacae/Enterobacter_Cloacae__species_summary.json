@@ -1,0 +1,24 @@
+{
+  "species": "Enterobacter_Cloacae",
+  "status": "ok",
+  "n_samples_train": 844,
+  "n_samples_test": 211,
+  "n_antibiotics": 12,
+  "antibiotics": [
+    "Amikacin",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "binary_mean_wf1": 0.8858953427374138,
+  "lps_mean_wf1": 0.855816382724084,
+  "multilabel_mean_wf1": 0.8910549098716335
+}

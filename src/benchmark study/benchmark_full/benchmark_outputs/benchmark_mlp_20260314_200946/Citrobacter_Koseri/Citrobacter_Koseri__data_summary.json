@@ -1,0 +1,20 @@
+{
+  "species": "Citrobacter_Koseri",
+  "n_total_species_samples": 851,
+  "n_complete_samples_before_pattern_filter": 690,
+  "n_samples_after_pattern_filter": 663,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Ertapenem",
+    "Meropenem",
+    "Tobramycin"
+  ],
+  "dropped_constant_antibiotics": [
+    "Levofloxacin"
+  ],
+  "min_pattern_count": 11
+}

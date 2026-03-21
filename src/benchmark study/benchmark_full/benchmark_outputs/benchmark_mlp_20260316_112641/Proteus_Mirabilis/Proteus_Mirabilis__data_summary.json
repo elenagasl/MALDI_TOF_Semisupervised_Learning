@@ -1,0 +1,25 @@
+{
+  "species": "Proteus_Mirabilis",
+  "n_total_species_samples": 2372,
+  "n_complete_samples_before_pattern_filter": 782,
+  "n_samples_after_pattern_filter": 645,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Ampicillin",
+    "Cefepime",
+    "Ceftazidime",
+    "Cefuroxime",
+    "Ciprofloxacin",
+    "Fosfomycin",
+    "Gentamicin",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Norfloxacin"
+  ],
+  "dropped_constant_antibiotics": [
+    "Ertapenem",
+    "Tobramycin"
+  ],
+  "min_pattern_count": 11
+}

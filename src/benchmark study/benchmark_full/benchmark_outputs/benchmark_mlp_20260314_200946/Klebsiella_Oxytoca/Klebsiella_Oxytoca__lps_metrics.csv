@@ -1,0 +1,10 @@
+antibiotic,acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible,status
+Amikacin,,,,,,133,0,133,constant_ground_truth
+Amoxicillin-Clavulanic acid,0.924812030075188,0.07518796992481203,0.8949637874213091,0.9305080884028252,0.924812030075188,133,11,122,ok
+Cefepime,,,,,,133,0,133,constant_ground_truth
+Ceftazidime,,,,,,133,0,133,constant_ground_truth
+Ceftriaxone,0.9548872180451128,0.045112781954887216,0.9384944920440637,0.9569377990430623,0.9548872180451128,133,7,126,ok
+Ciprofloxacin,,,,,,133,0,133,constant_ground_truth
+Colistin,,,,,,133,0,133,constant_ground_truth
+Cotrimoxazole,0.9849624060150376,0.015037593984962405,0.9775005696058328,0.9701509412629317,0.9849624060150376,133,2,131,ok
+Tobramycin,,,,,,133,0,133,constant_ground_truth

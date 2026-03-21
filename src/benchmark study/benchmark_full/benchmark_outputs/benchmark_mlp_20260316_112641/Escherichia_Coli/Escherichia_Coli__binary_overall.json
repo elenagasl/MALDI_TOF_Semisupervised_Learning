@@ -1,0 +1,9 @@
+{
+  "species": "Escherichia_Coli",
+  "model": "binary",
+  "n_antibiotics": 14,
+  "n_antibiotics_evaluable": 10,
+  "mean_acc": 0.8739290085679314,
+  "mean_hl": 0.12607099143206854,
+  "mean_wf1": 0.8570597118065978
+}

@@ -1,0 +1,24 @@
+{
+  "species": "Enterobacter_Cloacae",
+  "n_total_species_samples": 1607,
+  "n_complete_samples_before_pattern_filter": 1160,
+  "n_samples_after_pattern_filter": 1055,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "dropped_constant_antibiotics": [
+    "Cefepime"
+  ],
+  "min_pattern_count": 11
+}

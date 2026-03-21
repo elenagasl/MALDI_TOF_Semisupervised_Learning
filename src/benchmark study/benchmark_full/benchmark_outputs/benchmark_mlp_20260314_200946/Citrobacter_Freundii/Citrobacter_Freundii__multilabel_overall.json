@@ -1,0 +1,13 @@
+{
+  "species": "Citrobacter_Freundii",
+  "model": "direct_multilabel",
+  "n_antibiotics": 10,
+  "n_antibiotics_evaluable": 5,
+  "mean_acc": 0.9128712871287128,
+  "mean_hl": 0.08712871287128712,
+  "mean_wf1": 0.8937957166080132,
+  "median_wf1": 0.940994099409941,
+  "cv_best_wf1": 0.8964149178303824,
+  "val_best_wf1": 0.892281836004193,
+  "best_epoch": 44
+}

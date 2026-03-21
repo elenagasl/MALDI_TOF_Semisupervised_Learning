@@ -1,0 +1,20 @@
+{
+  "species": "Klebsiella_Variicola",
+  "status": "ok",
+  "n_samples_train": 416,
+  "n_samples_test": 105,
+  "n_antibiotics": 8,
+  "antibiotics": [
+    "Cefepime",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Levofloxacin"
+  ],
+  "binary_mean_wf1": 0.9573498964803312,
+  "lps_mean_wf1": 0.9573498964803312,
+  "multilabel_mean_wf1": 0.9573498964803312
+}

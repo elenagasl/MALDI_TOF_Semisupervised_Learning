@@ -1,0 +1,8 @@
+{
+  "activation": "relu",
+  "solver": "adam",
+  "learning_rate": 0.000792073095031719,
+  "layer1": 146,
+  "layer2": 318,
+  "layer3": 303
+}

@@ -1,0 +1,6 @@
+species,model,antibiotic,status,acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible,cv_best_wf1,val_best_wf1,best_epoch
+Serratia_Marcescens,binary,Amikacin,ok,0.8414634146341463,0.15853658536585366,0.8232602210914196,0.8247020826372649,0.8414634146341463,164,32,132,0.8826406699124838,0.8669927592341484,98.0
+Serratia_Marcescens,binary,Ceftazidime,skipped_single_class,,,,,,164,0,164,,,
+Serratia_Marcescens,binary,Ceftriaxone,skipped_single_class,,,,,,164,0,164,,,
+Serratia_Marcescens,binary,Ciprofloxacin,ok,0.9573170731707317,0.042682926829268296,0.9424055922802218,0.9279515187789915,0.9573170731707317,164,6,158,0.9758722304357883,0.9595260814249365,2.0
+Serratia_Marcescens,binary,Imipenem,skipped_single_class,,,,,,164,0,164,,,

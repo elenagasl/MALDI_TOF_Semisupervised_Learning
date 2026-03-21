@@ -1,0 +1,9 @@
+{
+  "species": "Enterobacter_Cloacae",
+  "model": "binary",
+  "n_antibiotics": 12,
+  "n_antibiotics_evaluable": 7,
+  "mean_acc": 0.8970886932972241,
+  "mean_hl": 0.10291130670277591,
+  "mean_wf1": 0.8858953427374138
+}
