@@ -1,0 +1,31 @@
+{
+  "species": "Enterobacter_Cloacae",
+  "species_pretty": "Enterobacter Cloacae",
+  "n_samples_final": 1070,
+  "input_dim": 6000,
+  "n_antibiotics": 12,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "n_unique_lps_patterns": 9,
+  "binary_auc_mean": 0.7999871988107284,
+  "binary_auc_std": 0.02894917808718406,
+  "multilabel_auc_mean": 0.7537703041262542,
+  "multilabel_auc_std": 0.04621588362417683,
+  "lps_auc_mean": 0.7128532669046649,
+  "lps_auc_std": 0.05238155158085499,
+  "best_ours": "binary",
+  "best_auc": 0.7999871988107284,
+  "elapsed_seconds": 527.4050691127777
+}

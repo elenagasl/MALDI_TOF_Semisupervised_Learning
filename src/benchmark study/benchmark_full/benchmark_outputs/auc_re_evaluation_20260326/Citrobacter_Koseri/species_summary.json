@@ -1,0 +1,27 @@
+{
+  "species": "Citrobacter_Koseri",
+  "species_pretty": "Citrobacter Koseri",
+  "n_samples_final": 663,
+  "input_dim": 6000,
+  "n_antibiotics": 8,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Cefepime",
+    "Ceftazidime",
+    "Ciprofloxacin",
+    "Colistin",
+    "Ertapenem",
+    "Meropenem",
+    "Tobramycin"
+  ],
+  "n_unique_lps_patterns": 1,
+  "binary_auc_mean": NaN,
+  "binary_auc_std": NaN,
+  "multilabel_auc_mean": NaN,
+  "multilabel_auc_std": NaN,
+  "lps_auc_mean": NaN,
+  "lps_auc_std": NaN,
+  "best_ours": null,
+  "best_auc": NaN,
+  "elapsed_seconds": 262.1088876724243
+}

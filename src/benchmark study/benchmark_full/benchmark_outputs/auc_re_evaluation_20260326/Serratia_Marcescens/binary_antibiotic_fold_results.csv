@@ -1,0 +1,21 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Serratia_Marcescens,Serratia Marcescens,0,Amikacin,0.8196790540540541,716,180
+Serratia_Marcescens,Serratia Marcescens,0,Ciprofloxacin,0.9090038314176245,716,180
+Serratia_Marcescens,Serratia Marcescens,1,Amikacin,0.7039695945945946,716,180
+Serratia_Marcescens,Serratia Marcescens,1,Ciprofloxacin,0.8860153256704981,716,180
+Serratia_Marcescens,Serratia Marcescens,2,Amikacin,0.7799831081081081,716,180
+Serratia_Marcescens,Serratia Marcescens,2,Ciprofloxacin,0.8007662835249041,716,180
+Serratia_Marcescens,Serratia Marcescens,3,Amikacin,0.8217905405405405,716,180
+Serratia_Marcescens,Serratia Marcescens,3,Ciprofloxacin,0.9090038314176248,716,180
+Serratia_Marcescens,Serratia Marcescens,4,Amikacin,0.824535472972973,716,180
+Serratia_Marcescens,Serratia Marcescens,4,Ciprofloxacin,0.7605363984674329,716,180
+Serratia_Marcescens,Serratia Marcescens,5,Amikacin,0.7785050675675675,716,180
+Serratia_Marcescens,Serratia Marcescens,5,Ciprofloxacin,0.810823754789272,716,180
+Serratia_Marcescens,Serratia Marcescens,6,Amikacin,0.8072212837837838,716,180
+Serratia_Marcescens,Serratia Marcescens,6,Ciprofloxacin,0.6340996168582376,716,180
+Serratia_Marcescens,Serratia Marcescens,7,Amikacin,0.8158783783783783,716,180
+Serratia_Marcescens,Serratia Marcescens,7,Ciprofloxacin,0.7959770114942528,716,180
+Serratia_Marcescens,Serratia Marcescens,8,Amikacin,0.7915962837837838,716,180
+Serratia_Marcescens,Serratia Marcescens,8,Ciprofloxacin,0.8874521072796936,716,180
+Serratia_Marcescens,Serratia Marcescens,9,Amikacin,0.8374155405405405,716,180
+Serratia_Marcescens,Serratia Marcescens,9,Ciprofloxacin,0.810344827586207,716,180

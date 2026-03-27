@@ -1,0 +1,33 @@
+{
+  "species": "Escherichia_Coli",
+  "species_pretty": "Escherichia Coli",
+  "n_samples_final": 4084,
+  "input_dim": 6000,
+  "n_antibiotics": 14,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Amoxicillin-Clavulanic acid",
+    "Cefepime",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Imipenem",
+    "Levofloxacin",
+    "Meropenem",
+    "Piperacillin-Tazobactam",
+    "Tobramycin"
+  ],
+  "n_unique_lps_patterns": 37,
+  "binary_auc_mean": 0.7952216914639078,
+  "binary_auc_std": 0.013989773812925065,
+  "multilabel_auc_mean": 0.7896547904158443,
+  "multilabel_auc_std": 0.013859041194883053,
+  "lps_auc_mean": 0.7719929683709718,
+  "lps_auc_std": 0.014154342989455494,
+  "best_ours": "binary",
+  "best_auc": 0.7952216914639078,
+  "elapsed_seconds": 9653.567701339722
+}

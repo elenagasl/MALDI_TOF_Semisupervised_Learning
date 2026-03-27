@@ -1,0 +1,11 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Klebsiella_Variicola,Klebsiella Variicola,0,Cotrimoxazole,0.6634615384615385,428,107
+Klebsiella_Variicola,Klebsiella Variicola,1,Cotrimoxazole,0.5064102564102564,428,107
+Klebsiella_Variicola,Klebsiella Variicola,2,Cotrimoxazole,0.6634615384615384,428,107
+Klebsiella_Variicola,Klebsiella Variicola,3,Cotrimoxazole,0.6634615384615384,428,107
+Klebsiella_Variicola,Klebsiella Variicola,4,Cotrimoxazole,0.6185897435897436,428,107
+Klebsiella_Variicola,Klebsiella Variicola,5,Cotrimoxazole,0.5993589743589742,428,107
+Klebsiella_Variicola,Klebsiella Variicola,6,Cotrimoxazole,0.8205128205128206,428,107
+Klebsiella_Variicola,Klebsiella Variicola,7,Cotrimoxazole,0.532051282051282,428,107
+Klebsiella_Variicola,Klebsiella Variicola,8,Cotrimoxazole,0.41346153846153844,428,107
+Klebsiella_Variicola,Klebsiella Variicola,9,Cotrimoxazole,0.8108974358974358,428,107

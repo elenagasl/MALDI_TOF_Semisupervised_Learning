@@ -1,0 +1,101 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Escherichia_Coli,Escherichia Coli,0,Amikacin,0.785006435006435,3267,817
+Escherichia_Coli,Escherichia Coli,0,Amoxicillin-Clavulanic acid,0.6657684436214794,3267,817
+Escherichia_Coli,Escherichia Coli,0,Cefepime,0.9150798360125149,3267,817
+Escherichia_Coli,Escherichia Coli,0,Ceftazidime,0.901102440232875,3267,817
+Escherichia_Coli,Escherichia Coli,0,Ceftriaxone,0.8970266932649379,3267,817
+Escherichia_Coli,Escherichia Coli,0,Ciprofloxacin,0.8532044285045999,3267,817
+Escherichia_Coli,Escherichia Coli,0,Cotrimoxazole,0.7461943963027152,3267,817
+Escherichia_Coli,Escherichia Coli,0,Levofloxacin,0.8541322314049588,3267,817
+Escherichia_Coli,Escherichia Coli,0,Piperacillin-Tazobactam,0.7423769923769924,3267,817
+Escherichia_Coli,Escherichia Coli,0,Tobramycin,0.7690547263681593,3267,817
+Escherichia_Coli,Escherichia Coli,1,Amikacin,0.7824324324324324,3267,817
+Escherichia_Coli,Escherichia Coli,1,Amoxicillin-Clavulanic acid,0.5289201832180099,3267,817
+Escherichia_Coli,Escherichia Coli,1,Cefepime,0.872194950911641,3267,817
+Escherichia_Coli,Escherichia Coli,1,Ceftazidime,0.8540319583797844,3267,817
+Escherichia_Coli,Escherichia Coli,1,Ceftriaxone,0.8596822456540326,3267,817
+Escherichia_Coli,Escherichia Coli,1,Ciprofloxacin,0.8298924060502106,3267,817
+Escherichia_Coli,Escherichia Coli,1,Cotrimoxazole,0.7165511265164646,3267,817
+Escherichia_Coli,Escherichia Coli,1,Levofloxacin,0.8238499922033371,3267,817
+Escherichia_Coli,Escherichia Coli,1,Piperacillin-Tazobactam,0.8186070686070687,3267,817
+Escherichia_Coli,Escherichia Coli,1,Tobramycin,0.7700298507462687,3267,817
+Escherichia_Coli,Escherichia Coli,2,Amikacin,0.7730373230373231,3267,817
+Escherichia_Coli,Escherichia Coli,2,Amoxicillin-Clavulanic acid,0.5235210993080597,3267,817
+Escherichia_Coli,Escherichia Coli,2,Cefepime,0.9140279426043803,3267,817
+Escherichia_Coli,Escherichia Coli,2,Ceftazidime,0.890115198810851,3267,817
+Escherichia_Coli,Escherichia Coli,2,Ceftriaxone,0.8796546974446661,3267,817
+Escherichia_Coli,Escherichia Coli,2,Ciprofloxacin,0.8478013410260409,3267,817
+Escherichia_Coli,Escherichia Coli,2,Cotrimoxazole,0.714132004621606,3267,817
+Escherichia_Coli,Escherichia Coli,2,Levofloxacin,0.84192265710276,3267,817
+Escherichia_Coli,Escherichia Coli,2,Piperacillin-Tazobactam,0.7528066528066529,3267,817
+Escherichia_Coli,Escherichia Coli,2,Tobramycin,0.7615920398009951,3267,817
+Escherichia_Coli,Escherichia Coli,3,Amikacin,0.7932754182754183,3267,817
+Escherichia_Coli,Escherichia Coli,3,Amoxicillin-Clavulanic acid,0.6889679368482605,3267,817
+Escherichia_Coli,Escherichia Coli,3,Cefepime,0.9187884345668357,3267,817
+Escherichia_Coli,Escherichia Coli,3,Ceftazidime,0.91879103183451,3267,817
+Escherichia_Coli,Escherichia Coli,3,Ceftriaxone,0.9206207846489979,3267,817
+Escherichia_Coli,Escherichia Coli,3,Ciprofloxacin,0.8498440667394356,3267,817
+Escherichia_Coli,Escherichia Coli,3,Cotrimoxazole,0.7377094165222415,3267,817
+Escherichia_Coli,Escherichia Coli,3,Levofloxacin,0.8440199594573522,3267,817
+Escherichia_Coli,Escherichia Coli,3,Piperacillin-Tazobactam,0.7977477477477478,3267,817
+Escherichia_Coli,Escherichia Coli,3,Tobramycin,0.7775721393034827,3267,817
+Escherichia_Coli,Escherichia Coli,4,Amikacin,0.7401222651222651,3267,817
+Escherichia_Coli,Escherichia Coli,4,Amoxicillin-Clavulanic acid,0.5813176103693598,3267,817
+Escherichia_Coli,Escherichia Coli,4,Cefepime,0.9151877225159133,3267,817
+Escherichia_Coli,Escherichia Coli,4,Ceftazidime,0.9033073206986251,3267,817
+Escherichia_Coli,Escherichia Coli,4,Ceftriaxone,0.9009451885627434,3267,817
+Escherichia_Coli,Escherichia Coli,4,Ciprofloxacin,0.8516996725401527,3267,817
+Escherichia_Coli,Escherichia Coli,4,Cotrimoxazole,0.6824017908723281,3267,817
+Escherichia_Coli,Escherichia Coli,4,Levofloxacin,0.8509979728676127,3267,817
+Escherichia_Coli,Escherichia Coli,4,Piperacillin-Tazobactam,0.777927927927928,3267,817
+Escherichia_Coli,Escherichia Coli,4,Tobramycin,0.7572537313432836,3267,817
+Escherichia_Coli,Escherichia Coli,5,Amikacin,0.7194015444015445,3267,817
+Escherichia_Coli,Escherichia Coli,5,Amoxicillin-Clavulanic acid,0.6773121528116167,3267,817
+Escherichia_Coli,Escherichia Coli,5,Cefepime,0.8894567914553889,3267,817
+Escherichia_Coli,Escherichia Coli,5,Ceftazidime,0.8746562616127833,3267,817
+Escherichia_Coli,Escherichia Coli,5,Ceftriaxone,0.8754868433551819,3267,817
+Escherichia_Coli,Escherichia Coli,5,Ciprofloxacin,0.8101356619366911,3267,817
+Escherichia_Coli,Escherichia Coli,5,Cotrimoxazole,0.6843154246100519,3267,817
+Escherichia_Coli,Escherichia Coli,5,Levofloxacin,0.8068844534539218,3267,817
+Escherichia_Coli,Escherichia Coli,5,Piperacillin-Tazobactam,0.7727997227997229,3267,817
+Escherichia_Coli,Escherichia Coli,5,Tobramycin,0.6998407960199005,3267,817
+Escherichia_Coli,Escherichia Coli,6,Amikacin,0.8016409266409267,3267,817
+Escherichia_Coli,Escherichia Coli,6,Amoxicillin-Clavulanic acid,0.5950540882954878,3267,817
+Escherichia_Coli,Escherichia Coli,6,Cefepime,0.9200426151688423,3267,817
+Escherichia_Coli,Escherichia Coli,6,Ceftazidime,0.8821875387092779,3267,817
+Escherichia_Coli,Escherichia Coli,6,Ceftriaxone,0.8830032297900636,3267,817
+Escherichia_Coli,Escherichia Coli,6,Ciprofloxacin,0.8383829720879464,3267,817
+Escherichia_Coli,Escherichia Coli,6,Cotrimoxazole,0.7198512420566147,3267,817
+Escherichia_Coli,Escherichia Coli,6,Levofloxacin,0.8362934663963822,3267,817
+Escherichia_Coli,Escherichia Coli,6,Piperacillin-Tazobactam,0.7606722106722108,3267,817
+Escherichia_Coli,Escherichia Coli,6,Tobramycin,0.7597014925373134,3267,817
+Escherichia_Coli,Escherichia Coli,7,Amikacin,0.7914414414414414,3267,817
+Escherichia_Coli,Escherichia Coli,7,Amoxicillin-Clavulanic acid,0.5214647695156417,3267,817
+Escherichia_Coli,Escherichia Coli,7,Cefepime,0.9169678498219873,3267,817
+Escherichia_Coli,Escherichia Coli,7,Ceftazidime,0.8992320079276601,3267,817
+Escherichia_Coli,Escherichia Coli,7,Ceftriaxone,0.8838462999905007,3267,817
+Escherichia_Coli,Escherichia Coli,7,Ciprofloxacin,0.8204818337751443,3267,817
+Escherichia_Coli,Escherichia Coli,7,Cotrimoxazole,0.7269822357019063,3267,817
+Escherichia_Coli,Escherichia Coli,7,Levofloxacin,0.8208248869483861,3267,817
+Escherichia_Coli,Escherichia Coli,7,Piperacillin-Tazobactam,0.7492376992376993,3267,817
+Escherichia_Coli,Escherichia Coli,7,Tobramycin,0.792,3267,817
+Escherichia_Coli,Escherichia Coli,8,Amikacin,0.780920205920206,3267,817
+Escherichia_Coli,Escherichia Coli,8,Amoxicillin-Clavulanic acid,0.5195546243056233,3267,817
+Escherichia_Coli,Escherichia Coli,8,Cefepime,0.8945274571151149,3267,817
+Escherichia_Coli,Escherichia Coli,8,Ceftazidime,0.8738634956026261,3267,817
+Escherichia_Coli,Escherichia Coli,8,Ceftriaxone,0.8794290871093379,3267,817
+Escherichia_Coli,Escherichia Coli,8,Ciprofloxacin,0.8300717292998595,3267,817
+Escherichia_Coli,Escherichia Coli,8,Cotrimoxazole,0.7380560369728479,3267,817
+Escherichia_Coli,Escherichia Coli,8,Levofloxacin,0.8312802120692343,3267,817
+Escherichia_Coli,Escherichia Coli,8,Piperacillin-Tazobactam,0.7601178101178101,3267,817
+Escherichia_Coli,Escherichia Coli,8,Tobramycin,0.7722587064676617,3267,817
+Escherichia_Coli,Escherichia Coli,9,Amikacin,0.8528635778635779,3267,817
+Escherichia_Coli,Escherichia Coli,9,Amoxicillin-Clavulanic acid,0.5133710164701297,3267,817
+Escherichia_Coli,Escherichia Coli,9,Cefepime,0.8946488294314382,3267,817
+Escherichia_Coli,Escherichia Coli,9,Ceftazidime,0.8518394648829433,3267,817
+Escherichia_Coli,Escherichia Coli,9,Ceftriaxone,0.8613683860549065,3267,817
+Escherichia_Coli,Escherichia Coli,9,Ciprofloxacin,0.820021830656479,3267,817
+Escherichia_Coli,Escherichia Coli,9,Cotrimoxazole,0.721894858463316,3267,817
+Escherichia_Coli,Escherichia Coli,9,Levofloxacin,0.8196319975050678,3267,817
+Escherichia_Coli,Escherichia Coli,9,Piperacillin-Tazobactam,0.686971586971587,3267,817
+Escherichia_Coli,Escherichia Coli,9,Tobramycin,0.7976318407960199,3267,817

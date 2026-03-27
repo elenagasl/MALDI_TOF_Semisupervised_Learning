@@ -1,0 +1,161 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Amoxicillin-Clavulanic acid,0.9420576840292725,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Cefazolin,0.9396642272922944,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Cefepime,0.9389410245372364,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Ceftriaxone,0.9367025398191993,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Cefuroxime,0.9397847610848041,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Ciprofloxacin,0.8841100917431192,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Clindamycin,0.819377675731267,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Cotrimoxazole,0.7760428804474482,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Erythromycin,0.8035639412997903,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Fusidic acid,0.8068827680969334,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Gentamicin,0.49972987574284167,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Imipenem,0.9466207490314249,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Oxacillin,0.9399397331037451,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Penicillin,0.7724583109198494,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Piperacillin-Tazobactam,0.9409728798966853,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,0,Tetracycline,0.8343345543345543,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Amoxicillin-Clavulanic acid,0.9387343951786482,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Cefazolin,0.9401980198019803,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Cefepime,0.9380111924235902,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Ceftriaxone,0.938544984933276,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Cefuroxime,0.940215238915196,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Ciprofloxacin,0.8368929663608562,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Clindamycin,0.8253330463275215,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Cotrimoxazole,0.8238172920065253,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Erythromycin,0.8581551362683438,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Fusidic acid,0.796702267191306,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Gentamicin,0.3565640194489465,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Imipenem,0.9414722341799397,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Oxacillin,0.9382522600086094,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Penicillin,0.7679581206785708,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Piperacillin-Tazobactam,0.9404046491605682,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,1,Tetracycline,0.8426862026862026,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Amoxicillin-Clavulanic acid,0.9331209642703402,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Cefazolin,0.9312096427034008,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Cefepime,0.9317778734395179,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Ceftriaxone,0.9308136030994405,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Cefuroxime,0.9313990529487731,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Ciprofloxacin,0.8223608562691131,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Clindamycin,0.8255961349884001,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Cotrimoxazole,0.7762759263574924,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Erythromycin,0.8420964360587002,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Fusidic acid,0.8293673099743926,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Gentamicin,0.3319827120475419,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Imipenem,0.9329659922513991,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Oxacillin,0.9332414980628497,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Penicillin,0.7844369514163134,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Piperacillin-Tazobactam,0.9373740852346105,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,2,Tetracycline,0.8561660561660561,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Amoxicillin-Clavulanic acid,0.9363237193284546,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Cefazolin,0.9356349547998278,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Cefepime,0.934946190271201,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Ceftriaxone,0.9337925096857512,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Cefuroxime,0.937029702970297,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Ciprofloxacin,0.8664220183486238,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Clindamycin,0.802635670038985,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Cotrimoxazole,0.926357492426008,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Erythromycin,0.8370649895178197,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Fusidic acid,0.782399600274811,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Gentamicin,0.6226364127498649,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Imipenem,0.9356693930262592,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Oxacillin,0.9380111924235902,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Penicillin,0.79690759521904,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Piperacillin-Tazobactam,0.9363753766681016,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,3,Tetracycline,0.8556776556776556,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Amoxicillin-Clavulanic acid,0.9406457167455875,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Cefazolin,0.9383555746879036,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Cefepime,0.9394920361601377,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Ceftriaxone,0.9394403788204908,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Cefuroxime,0.9397675419715884,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Ciprofloxacin,0.8462874617737003,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Clindamycin,0.8496807060342972,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Cotrimoxazole,0.6758331391284084,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Erythromycin,0.8102515723270439,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Fusidic acid,0.7872087939541565,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Gentamicin,0.36574824419232843,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Imipenem,0.9408179078777443,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Oxacillin,0.938699956952217,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Penicillin,0.7571996483816372,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Piperacillin-Tazobactam,0.94083512699096,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,4,Tetracycline,0.8400976800976802,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Amoxicillin-Clavulanic acid,0.9506500215238914,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Cefazolin,0.9513732242789497,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Cefepime,0.9510288420146362,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Ceftriaxone,0.9505467068445975,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Cefuroxime,0.9533017649591047,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Ciprofloxacin,0.8808562691131498,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Clindamycin,0.8777116069933749,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Cotrimoxazole,0.8538802144022373,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Erythromycin,0.8663522012578617,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Fusidic acid,0.8068203110361627,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Gentamicin,0.7793084819016748,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Imipenem,0.9525613430908308,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Oxacillin,0.9506155832974602,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Penicillin,0.7791626759731827,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Piperacillin-Tazobactam,0.9536117089969867,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,5,Tetracycline,0.8345787545787545,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Amoxicillin-Clavulanic acid,0.938286698235041,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Cefazolin,0.941248385708136,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Cefepime,0.9375462763667671,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Ceftriaxone,0.9391820921222557,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Cefuroxime,0.9395436934997848,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Ciprofloxacin,0.8641467889908258,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Clindamycin,0.8345411494582764,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Cotrimoxazole,0.8750873922162665,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Erythromycin,0.8462054507337526,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Fusidic acid,0.8302417088251827,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Gentamicin,0.8649378714208537,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Imipenem,0.9392854068015497,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Oxacillin,0.9375462763667671,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Penicillin,0.7501148007714613,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Piperacillin-Tazobactam,0.9395781317262161,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,6,Tetracycline,0.8755067155067155,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Amoxicillin-Clavulanic acid,0.9396814464055101,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Cefazolin,0.9390787774429616,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Cefepime,0.9397847610848041,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Ceftriaxone,0.9395609126130003,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Cefuroxime,0.9429875161429186,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Ciprofloxacin,0.8531620795107033,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Clindamycin,0.8063667455932648,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Cotrimoxazole,0.6192029829876486,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Erythromycin,0.8068343815513627,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Fusidic acid,0.8115670476547373,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Gentamicin,0.48190167477039436,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Imipenem,0.943176926388291,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Oxacillin,0.9400947051226862,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Penicillin,0.7481861478109133,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Piperacillin-Tazobactam,0.9431424881618596,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,7,Tetracycline,0.8110378510378512,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Amoxicillin-Clavulanic acid,0.9123030563925957,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Cefazolin,0.9113043478260869,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Cefepime,0.9154885923374946,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Ceftriaxone,0.9146620749031424,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Cefuroxime,0.9189324149806285,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Ciprofloxacin,0.8460672782874619,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Clindamycin,0.8310731625648753,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Cotrimoxazole,0.8909345140992775,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Erythromycin,0.81979035639413,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Fusidic acid,0.7183186559240522,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Gentamicin,0.162344678552134,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Imipenem,0.9127335342229875,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Oxacillin,0.9155746879035731,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Penicillin,0.7524370563770189,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Piperacillin-Tazobactam,0.9203788204907447,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,8,Tetracycline,0.8391208791208791,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Amoxicillin-Clavulanic acid,0.9343435213086526,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Cefazolin,0.934171330176496,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Cefepime,0.9328626775721051,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Ceftriaxone,0.9322600086095567,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Cefuroxime,0.9382522600086095,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Ciprofloxacin,0.8819327217125383,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Clindamycin,0.8261701466121355,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Cotrimoxazole,0.5812164996504312,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Erythromycin,0.8396016771488469,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Fusidic acid,0.7568546624195865,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Gentamicin,0.6458670988654781,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Imipenem,0.9334825656478692,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Oxacillin,0.9325355144210073,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Penicillin,0.7684042036762486,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Piperacillin-Tazobactam,0.9364959104606112,2476,620
+Staphylococcus_Aureus,Staphylococcus Aureus,9,Tetracycline,0.8387789987789988,2476,620

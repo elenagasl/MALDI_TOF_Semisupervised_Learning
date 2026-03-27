@@ -1,0 +1,11 @@
+species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_auc,multilabel_auc,lps_auc
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,2728,682,22,62,0.8661508795296999,0.8742864967367111,0.8938402899691932
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,2728,682,22,62,0.871505819591817,0.8847244303397745,0.8676687088101939
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,2728,682,22,62,0.8785189319873017,0.876469805782303,0.8749088188574586
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,2728,682,22,62,0.8719791513856908,0.877551998559826,0.8840616002021359
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,2728,682,22,62,0.8822140044980488,0.8930437909534253,0.8593072773543282
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,2728,682,22,62,0.8756169875957092,0.8809521101810641,0.8771978662119102
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,2728,682,22,62,0.8730688716347248,0.8718900812495629,0.892344389856268
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,2728,682,22,62,0.8758268041105023,0.8839341385552671,0.8830677572299706
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,2728,682,22,62,0.8739144077427873,0.8680038288589017,0.8691359417052861
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,2728,682,22,62,0.8861800126342796,0.8885202584098477,0.8915607928010151

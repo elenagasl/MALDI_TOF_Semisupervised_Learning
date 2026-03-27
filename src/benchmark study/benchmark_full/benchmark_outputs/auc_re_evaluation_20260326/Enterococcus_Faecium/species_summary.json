@@ -1,0 +1,25 @@
+{
+  "species": "Enterococcus_Faecium",
+  "species_pretty": "Enterococcus Faecium",
+  "n_samples_final": 1120,
+  "input_dim": 6000,
+  "n_antibiotics": 6,
+  "selected_antibiotics": [
+    "Imipenem",
+    "Levofloxacin",
+    "Linezolid",
+    "Teicoplanin",
+    "Tigecycline",
+    "Vancomycin"
+  ],
+  "n_unique_lps_patterns": 5,
+  "binary_auc_mean": 0.9575150409456571,
+  "binary_auc_std": 0.021807230071315183,
+  "multilabel_auc_mean": 0.956685477317812,
+  "multilabel_auc_std": 0.0186898447984344,
+  "lps_auc_mean": 0.9600751979333653,
+  "lps_auc_std": 0.018900281972096766,
+  "best_ours": "lps",
+  "best_auc": 0.9600751979333653,
+  "elapsed_seconds": 280.54840636253357
+}

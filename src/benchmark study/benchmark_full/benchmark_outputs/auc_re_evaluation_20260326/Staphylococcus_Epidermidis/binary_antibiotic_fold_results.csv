@@ -1,0 +1,181 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Amoxicillin-Clavulanic acid,0.8802822092349815,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Cefazolin,0.8984678565787395,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Cefepime,0.9005949560364346,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Ceftriaxone,0.9108513662928448,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Cefuroxime,0.8983520244300532,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Ciprofloxacin,0.9395612007238284,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Clindamycin,0.8080935793230981,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Cotrimoxazole,0.8921192371492231,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Erythromycin,0.7514487969483569,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Fusidic acid,0.8037974136066779,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Gentamicin,0.9139401565995526,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Imipenem,0.9023745590480703,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Meropenem,0.878723740325383,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Oxacillin,0.8861685884273154,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Penicillin,0.5675012272950417,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Piperacillin-Tazobactam,0.8815458326751962,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Rifampicin,0.9507097791798107,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,0,Tetracycline,0.9261833076599916,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Amoxicillin-Clavulanic acid,0.9067972410888221,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Cefazolin,0.9240088453640815,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Cefepime,0.9114515874269469,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Ceftriaxone,0.9154109408729532,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Cefuroxime,0.912483546569789,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Ciprofloxacin,0.9502584482713836,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Clindamycin,0.8102008343009505,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Cotrimoxazole,0.9139191802200607,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Erythromycin,0.7291483274647887,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Fusidic acid,0.7931836858267376,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Gentamicin,0.9246801593959731,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Imipenem,0.9129363449691991,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Meropenem,0.9064076238614227,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Oxacillin,0.9085031327331121,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Penicillin,0.5076092292587138,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Piperacillin-Tazobactam,0.9060074764386878,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Rifampicin,0.9289563617245005,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,1,Tetracycline,0.9251417868645848,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Amoxicillin-Clavulanic acid,0.888506291791713,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Cefazolin,0.9126678249881535,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Cefepime,0.9145369346601379,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Ceftriaxone,0.907028905386195,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Cefuroxime,0.9064602748380983,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Ciprofloxacin,0.9518948544118029,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Clindamycin,0.7949597901346064,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Cotrimoxazole,0.89212905252206,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Erythromycin,0.7429760856807512,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Fusidic acid,0.8060983521473984,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Gentamicin,0.9206340883668904,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Imipenem,0.9094403201179382,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Meropenem,0.8853051124098351,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Oxacillin,0.8935818459432423,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Penicillin,0.7771232204221894,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Piperacillin-Tazobactam,0.8897804454272628,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Rifampicin,0.8897542060988433,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,2,Tetracycline,0.9304631704243104,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Amoxicillin-Clavulanic acid,0.8910019480861371,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Cefazolin,0.9001105670510189,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Cefepime,0.8963407571210448,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Ceftriaxone,0.8994682251355763,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Cefuroxime,0.901395250881904,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Ciprofloxacin,0.952128626717577,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Clindamycin,0.8136412505913215,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Cotrimoxazole,0.8928553901119933,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Erythromycin,0.7188967136150235,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Fusidic acid,0.812793564292202,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Gentamicin,0.9307711129753915,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Imipenem,0.8984941820670774,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Meropenem,0.8959827304796504,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Oxacillin,0.8806402358763755,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Penicillin,0.6254295532646048,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Piperacillin-Tazobactam,0.892323487600695,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Rifampicin,0.9612250262881179,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,3,Tetracycline,0.9321261027867245,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Amoxicillin-Clavulanic acid,0.8961617438003475,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Cefazolin,0.9154951824356342,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Cefepime,0.9133944084662772,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Ceftriaxone,0.9223713999894698,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Cefuroxime,0.915905860053704,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Ciprofloxacin,0.938773301471034,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Clindamycin,0.8263019825398874,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Cotrimoxazole,0.8828927866825023,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Erythromycin,0.7324402142018779,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Fusidic acid,0.7990138834825483,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Gentamicin,0.917994966442953,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Imipenem,0.9102932659400833,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Meropenem,0.9028062970568103,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Oxacillin,0.903701363660296,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Penicillin,0.7442317133038783,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Piperacillin-Tazobactam,0.9023745590480704,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Rifampicin,0.9302379074658255,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,4,Tetracycline,0.9254612449236801,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Amoxicillin-Clavulanic acid,0.8785868477860265,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Cefazolin,0.9032801558468911,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Cefepime,0.8943031643236983,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Ceftriaxone,0.9006791975991154,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Cefuroxime,0.9017848681093036,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Ciprofloxacin,0.9350156281115527,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Clindamycin,0.7937126392293467,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Cotrimoxazole,0.8740785818749326,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Erythromycin,0.7209231954225352,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Fusidic acid,0.8036590112884391,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Gentamicin,0.9157490911633109,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Imipenem,0.8934238930132155,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Meropenem,0.8772073921971253,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Oxacillin,0.87717580161112,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Penicillin,0.8517427589592538,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Piperacillin-Tazobactam,0.8822618859579846,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Rifampicin,0.9356269716088328,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,5,Tetracycline,0.9218946926200812,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Amoxicillin-Clavulanic acid,0.8854420049491919,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Cefazolin,0.891001948086137,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Cefepime,0.8896856736692464,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Ceftriaxone,0.8919496656662981,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Cefuroxime,0.8930658663718212,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Ciprofloxacin,0.9420417846350987,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Clindamycin,0.8005504666064595,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Cotrimoxazole,0.8907254542063779,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Erythromycin,0.7207673122065728,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Fusidic acid,0.8080273344578522,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Gentamicin,0.9259385486577181,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Imipenem,0.9005528352550941,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Meropenem,0.8831622176591376,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Oxacillin,0.882256620860317,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Penicillin,0.746195385370643,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Piperacillin-Tazobactam,0.8854525351445269,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Rifampicin,0.9537986330178759,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,6,Tetracycline,0.9246254026046773,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Amoxicillin-Clavulanic acid,0.8942241878586848,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Cefazolin,0.9115147685989574,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Cefepime,0.9067235297214763,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Ceftriaxone,0.9153793502869478,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Cefuroxime,0.9082819986310747,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Ciprofloxacin,0.9327255253383204,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Clindamycin,0.8240227067475164,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Cotrimoxazole,0.8829909404108717,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Erythromycin,0.7453051643192489,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Fusidic acid,0.7906059426495393,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Gentamicin,0.9086968680089486,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Imipenem,0.9068288316748276,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Meropenem,0.8964776496604012,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Oxacillin,0.8896646132785762,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Penicillin,0.7329405989199804,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Piperacillin-Tazobactam,0.8885273521823829,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Rifampicin,0.9160423238696109,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,7,Tetracycline,0.9139301218316762,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Amoxicillin-Clavulanic acid,0.8786500289580371,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Cefazolin,0.9019270257463275,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Cefepime,0.8967251092507766,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Ceftriaxone,0.8984941820670773,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Cefuroxime,0.8935449902595692,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Ciprofloxacin,0.9405612266985289,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Clindamycin,0.782238850900959,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Cotrimoxazole,0.886033705990322,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Erythromycin,0.7073338468309859,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Fusidic acid,0.8004325072444964,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Gentamicin,0.9037244826621924,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Imipenem,0.8990680777128416,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Meropenem,0.8836729321328911,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Oxacillin,0.8744484810193229,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Penicillin,0.8237604320078546,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Piperacillin-Tazobactam,0.8792186595061338,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Rifampicin,0.9515970031545742,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,8,Tetracycline,0.9290277972272791,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Amoxicillin-Clavulanic acid,0.9098615279313431,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Cefazolin,0.9222029168641078,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Cefepime,0.9168272521455273,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Ceftriaxone,0.9197915021323646,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Cefuroxime,0.925830569157058,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Ciprofloxacin,0.940699758435284,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Clindamycin,0.8129531673332474,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Cotrimoxazole,0.9056546362913596,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Erythromycin,0.7239216549295775,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Fusidic acid,0.806747113014143,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Gentamicin,0.9194805648769575,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Imipenem,0.9271731690622861,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Meropenem,0.9054914968672669,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Oxacillin,0.9060390670246934,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Penicillin,0.7511045655375552,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Piperacillin-Tazobactam,0.9102458800610751,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Rifampicin,0.9315523133543637,2728,682
+Staphylococcus_Epidermidis,Staphylococcus Epidermidis,9,Tetracycline,0.9156630723988236,2728,682
