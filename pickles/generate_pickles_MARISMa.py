@@ -21,7 +21,6 @@ from utils.preprocess import (
     StdThresholder,
     LogScaler,
 )
-
 from utils.config import MARISMA_ROOT, MARISMA_ANON_PICKLE, PICKLE_OUTPUT_DIR
 
 
@@ -33,7 +32,6 @@ def collect_species(
     amr_antibiotics=None,
     amr_year=None,
 ):
-
     logger.info("Preprocessing pipeline:")
     for i, step in enumerate(preprocess_pipeline.preprocessors, 1):
         args = step.__dict__
@@ -47,6 +45,8 @@ def collect_species(
     spectra = []
     labels = []
     metas = []
+    amrs = []
+    sample_types = []
 
     logger.info("################## PROCESSING SPECIES ##################:")
     logger.info("Bacteria species included:")
@@ -63,16 +63,26 @@ def collect_species(
     logger.info("Creating dataset...")
     dataset = MARISMa(species, preprocess_pipeline=preprocess_pipeline)
 
+    # ==========================
     # AMR EXTRACTION
-
+    # ==========================
     amr_map = None
     antibiotic_cols = None
+    sample_map = None
 
     if amr_antibiotics:
         amr_csv = os.path.join(dataset_path, "AMR.csv")
 
         if os.path.exists(amr_csv):
             amr_df = pd.read_csv(amr_csv, low_memory=False)
+
+            # Create sample map
+            sample_map = {}
+            if "Sample" in amr_df.columns and "Path" in amr_df.columns:
+                for _, row in amr_df.iterrows():
+                    sample_map[row["Path"]] = row.get("Sample", None)
+            else:
+                logger.warning("No 'Sample' or 'Path' column found in AMR.csv")
 
             if amr_year is not None:
                 try:
@@ -84,18 +94,12 @@ def collect_species(
                     f"Filtered AMR table to year {amr_year}: {len(amr_df)} rows"
                 )
 
-            antibiotic_cols = [
-                ab for ab in amr_antibiotics if ab in amr_df.columns
-            ]
+            antibiotic_cols = [ab for ab in amr_antibiotics if ab in amr_df.columns]
 
             if len(antibiotic_cols) == 0:
-                logger.warning(
-                    "No requested antibiotic columns found in AMR.csv"
-                )
+                logger.warning("No requested antibiotic columns found in AMR.csv")
             else:
-                amr_df = amr_df.dropna(
-                    subset=antibiotic_cols, how="all"
-                )
+                amr_df = amr_df.dropna(subset=antibiotic_cols, how="all")
 
                 def encode_amr(row):
                     vals = []
@@ -114,28 +118,25 @@ def collect_species(
                     return np.array(vals, dtype=float)
 
                 amr_map = {}
+                if "Path" not in amr_df.columns:
+                    logger.warning("No 'Path' column found in AMR.csv; AMR extraction disabled")
+                    amr_map = None
+                else:
+                    for _, row in amr_df.iterrows():
+                        amr_map[row["Path"]] = encode_amr(row)
 
-                for _, row in amr_df.iterrows():
-                    amr_map[row["Path"]] = encode_amr(row)
-
-                logger.info(
-                    f"Created AMR map for {len(amr_map)} samples with AMR data"
-                )
-
+                    logger.info(
+                        f"Created AMR map for {len(amr_map)} samples with AMR data"
+                    )
         else:
-            logger.warning(
-                f"AMR.csv not found at {amr_csv}; AMR extraction disabled"
-            )
+            logger.warning(f"AMR.csv not found at {amr_csv}; AMR extraction disabled")
 
     # ==========================
     # PROCESS SPECTRA
     # ==========================
-
     logger.info("Processing species spectra...")
-    amrs = []
 
     for i in tqdm(range(len(dataset)), desc="Extracting species"):
-
         spectrum_obj, label, meta = dataset[i]
 
         if amr_map is not None:
@@ -157,11 +158,15 @@ def collect_species(
                 continue
 
             amr_vec = amr_map[full_path]
-
             if np.all(np.isnan(amr_vec)):
                 continue
 
+            sample_type = None
+            if sample_map is not None:
+                sample_type = sample_map.get(full_path, None)
+
             amrs.append(amr_vec)
+            sample_types.append(sample_type)
 
         spectra.append(spectrum_obj.intensity)
         labels.append(label)
@@ -169,11 +174,12 @@ def collect_species(
 
     data = np.stack(spectra) if len(spectra) > 0 else np.empty((0,))
     label = np.array(labels)
-    meta = np.array(metas)
+    meta = np.array(metas, dtype=object)
 
-    amr_arr = (
-        np.stack(amrs)
-        if amr_map is not None and len(amrs) > 0
+    amr_arr = np.stack(amrs) if amr_map is not None and len(amrs) > 0 else None
+    sample_types_arr = (
+        np.array(sample_types, dtype=object)
+        if amr_map is not None and len(sample_types) > 0
         else None
     )
 
@@ -188,10 +194,13 @@ def collect_species(
         count = np.sum(label == class_name)
         logger.info(f"  - {class_name}: {count} samples")
 
-    return data, label, meta, amr_arr, antibiotic_cols
+    if amr_arr is not None:
+        logger.info(f"Final AMR shape: {amr_arr.shape}")
+    if sample_types_arr is not None:
+        logger.info(f"Final sample_type shape: {sample_types_arr.shape}")
 
+    return data, label, meta, amr_arr, antibiotic_cols, sample_types_arr
 
-# MAIN
 
 def main(
     name,
@@ -201,7 +210,6 @@ def main(
     amr_antibiotics=None,
     amr_year=None,
 ):
-
     log_file = os.path.join(
         os.path.dirname(__file__), f"pickle_creation_{name}.log"
     )
@@ -221,6 +229,7 @@ def main(
 
     name_pickle = f"MARISMa_study_{name}"
     save_path = PICKLE_OUTPUT_DIR / f"{name_pickle}.pkl"
+    os.makedirs(PICKLE_OUTPUT_DIR, exist_ok=True)
 
     logger.info("=" * 80)
     logger.info(
@@ -231,7 +240,7 @@ def main(
     logger.info(f"Save path: {save_path}")
     logger.info(f"Dataset source: {dataset_path}")
 
-    data, label, meta, amr_arr, antibiotic_cols = collect_species(
+    data, label, meta, amr_arr, antibiotic_cols, sample_types_arr = collect_species(
         dataset_path,
         preprocess_pipeline,
         species_list,
@@ -246,11 +255,19 @@ def main(
 
     logger.info(f"Saving pickle to: {save_path}")
 
-    payload = {"data": data, "label": label, "meta": meta}
+    payload = {
+        "data": data,
+        "label": label,
+        "meta": meta,
+        "hospital": 3,
+    }
 
     if amr_arr is not None:
         payload["amr"] = amr_arr
         payload["antibiotics"] = antibiotic_cols
+
+    if sample_types_arr is not None:
+        payload["sample_type"] = sample_types_arr
 
     with open(save_path, "wb") as f:
         pickle.dump(payload, f)
@@ -260,149 +277,146 @@ def main(
     logger.info("SESSION COMPLETED")
     logger.info("=" * 80)
 
-# EXECUTION BLOCK
 
 if __name__ == "__main__":
-
-    name = "MARISMA_half_pipeline"
+    name = "MARISMA_samples"
 
     species_list = [
-		("Staphylococcus", "Aureus"),
-		("Staphylococcus", "Epidermidis"),
-		("Escherichia", "Coli"),
-		("Klebsiella", "Pneumoniae"),
-		("Pseudomonas", "Aeruginosa"),
-		("Enterobacter", "Cloacae"),
-		("Proteus", "Mirabilis"),
-		("Staphylococcus", "Hominis"),
-		("Serratia", "Marcescens"),
-		("Staphylococcus", "Capitis"),
-		("Enterococcus", "Faecium"),
-		("Klebsiella", "Oxytoca"),
-		("Klebsiella", "Variicola"),
-		("Citrobacter", "Koseri"),
-		("Enterococcus", "Faecalis"),
-		("Staphylococcus", "Lugdunensis"),
-		("Citrobacter", "Freundii"),
-		("Morganella", "Morganii"),
-		("Proteus", "Vulgaris"),
-		("Staphylococcus", "Haemolyticus"),
-		("Candida", "Albicans"),
-		("Streptococcus", "Pneumoniae"),
-		("Stenotrophomonas", "Maltophilia"),
-		("Campylobacter", "Jejuni"),
-		("Haemophilus", "Influenzae"),
-	]
-    
-    amr_antibiotics = [
-    '5-Fluorocytosine',
-    'Amikacin',
-    'Amoxicillin',
-    'Amoxicillin-Clavulanic acid',
-    'Amoxicillin-Clavulanic acid_uncomplicated_HWI',
-    'Amphotericin B',
-    'Ampicillin',
-    'Ampicillin-Sulbactam',
-    'Anidulafungin',
-    'Azithromycin',
-    'Aztreonam',
-    'Bacitracin',
-    'Benzylpenicillin',
-    'Benzylpenicillin_others',
-    'Benzylpenicillin_with_meningitis',
-    'Benzylpenicillin_with_pneumonia',
-    'Caspofungin',
-    'Cefalotin-Cefazolin',
-    'Cefazolin',
-    'Cefepime',
-    'Cefixime',
-    'Cefotaxime',
-    'Cefoxitin',
-    'Cefoxitin_screen',
-    'Cefpodoxime',
-    'Ceftarolin',
-    'Ceftazidime',
-    'Ceftazidime-Avibactam',
-    'Ceftobiprole',
-    'Ceftolozane-Tazobactam',
-    'Ceftriaxone',
-    'Cefuroxime',
-    'Cefuroxime.1',
-    'Chloramphenicol',
-    'Ciprofloxacin',
-    'Clarithromycin',
-    'Clindamycin',
-    'Clindamycin_induced',
-    'Colistin',
-    'Cotrimoxazol',
-    'Cotrimoxazole',
-    'Daptomycin',
-    'Doxycycline',
-    'Ertapenem',
-    'Erythromycin',
-    'Ethambutol_5mg-l',
-    'Fluconazole',
-    'Fosfomycin',
-    'Fusidic acid',
-    'Gentamicin',
-    'Gentamicin_high_level',
-    'Imipenem',
-    'Isavuconazole',
-    'Isoniazid_.1mg-l',
-    'Isoniazid_.4mg-l',
-    'Itraconazole',
-    'Levofloxacin',
-    'Linezolid',
-    'MRSA',
-    'Meropenem',
-    'Meropenem-Vaborbactam',
-    'Meropenem_with_meningitis',
-    'Meropenem_with_pneumonia',
-    'Meropenem_without_meningitis',
-    'Metronidazole',
-    'Micafungin',
-    'Minocycline',
-    'Moxifloxacin',
-    'Mupirocin',
-    'Nitrofurantoin',
-    'Norfloxacin',
-    'Novobiocin',
-    'Ofloxacin',
-    'Oxacillin',
-    'Pefloxacin',
-    'Penicillin',
-    'Penicillin_with_endokarditis',
-    'Penicillin_with_meningitis',
-    'Penicillin_with_other_infections',
-    'Penicillin_with_pneumonia',
-    'Penicillin_without_endokarditis',
-    'Penicillin_without_meningitis',
-    'Piperacillin',
-    'Piperacillin-Tazobactam',
-    'Polymyxin B',
-    'Posaconazole',
-    'Pristinamycin',
-    'Pyrazinamide',
-    'Rifampicin',
-    'Rifampicin_1mg-l',
-    'Sparfloxacin',
-    'Strepomycin_high_level',
-    'Streptomycin',
-    'Teicoplanin',
-    'Teicoplanin_GRD',
-    'Telithromycin',
-    'Tetracycline',
-    'Ticarcillin',
-    'Ticarcillin-Clavulan acid',
-    'Tigecycline',
-    'Tobramycin',
-    'Vancomycin',
-    'Vancomycin_GRD',
-    'Voriconazole'
-	]
-   
-    amr_year = None
+        ("Staphylococcus", "Aureus"),
+        ("Staphylococcus", "Epidermidis"),
+        ("Escherichia", "Coli"),
+        ("Klebsiella", "Pneumoniae"),
+        ("Pseudomonas", "Aeruginosa"),
+        ("Enterobacter", "Cloacae"),
+        ("Proteus", "Mirabilis"),
+        ("Staphylococcus", "Hominis"),
+        ("Serratia", "Marcescens"),
+        ("Staphylococcus", "Capitis"),
+        ("Enterococcus", "Faecium"),
+        ("Klebsiella", "Oxytoca"),
+        ("Klebsiella", "Variicola"),
+        ("Citrobacter", "Koseri"),
+        ("Enterococcus", "Faecalis"),
+        ("Staphylococcus", "Lugdunensis"),
+        ("Citrobacter", "Freundii"),
+        ("Morganella", "Morganii"),
+        ("Proteus", "Vulgaris"),
+        ("Staphylococcus", "Haemolyticus"),
+        ("Candida", "Albicans"),
+        ("Streptococcus", "Pneumoniae"),
+        ("Stenotrophomonas", "Maltophilia"),
+        ("Campylobacter", "Jejuni"),
+        ("Haemophilus", "Influenzae"),
+    ]
 
+    amr_antibiotics = [
+        "5-Fluorocytosine",
+        "Amikacin",
+        "Amoxicillin",
+        "Amoxicillin-Clavulanic acid",
+        "Amoxicillin-Clavulanic acid_uncomplicated_HWI",
+        "Amphotericin B",
+        "Ampicillin",
+        "Ampicillin-Sulbactam",
+        "Anidulafungin",
+        "Azithromycin",
+        "Aztreonam",
+        "Bacitracin",
+        "Benzylpenicillin",
+        "Benzylpenicillin_others",
+        "Benzylpenicillin_with_meningitis",
+        "Benzylpenicillin_with_pneumonia",
+        "Caspofungin",
+        "Cefalotin-Cefazolin",
+        "Cefazolin",
+        "Cefepime",
+        "Cefixime",
+        "Cefotaxime",
+        "Cefoxitin",
+        "Cefoxitin_screen",
+        "Cefpodoxime",
+        "Ceftarolin",
+        "Ceftazidime",
+        "Ceftazidime-Avibactam",
+        "Ceftobiprole",
+        "Ceftolozane-Tazobactam",
+        "Ceftriaxone",
+        "Cefuroxime",
+        "Cefuroxime.1",
+        "Chloramphenicol",
+        "Ciprofloxacin",
+        "Clarithromycin",
+        "Clindamycin",
+        "Clindamycin_induced",
+        "Colistin",
+        "Cotrimoxazol",
+        "Cotrimoxazole",
+        "Daptomycin",
+        "Doxycycline",
+        "Ertapenem",
+        "Erythromycin",
+        "Ethambutol_5mg-l",
+        "Fluconazole",
+        "Fosfomycin",
+        "Fusidic acid",
+        "Gentamicin",
+        "Gentamicin_high_level",
+        "Imipenem",
+        "Isavuconazole",
+        "Isoniazid_.1mg-l",
+        "Isoniazid_.4mg-l",
+        "Itraconazole",
+        "Levofloxacin",
+        "Linezolid",
+        "MRSA",
+        "Meropenem",
+        "Meropenem-Vaborbactam",
+        "Meropenem_with_meningitis",
+        "Meropenem_with_pneumonia",
+        "Meropenem_without_meningitis",
+        "Metronidazole",
+        "Micafungin",
+        "Minocycline",
+        "Moxifloxacin",
+        "Mupirocin",
+        "Nitrofurantoin",
+        "Norfloxacin",
+        "Novobiocin",
+        "Ofloxacin",
+        "Oxacillin",
+        "Pefloxacin",
+        "Penicillin",
+        "Penicillin_with_endokarditis",
+        "Penicillin_with_meningitis",
+        "Penicillin_with_other_infections",
+        "Penicillin_with_pneumonia",
+        "Penicillin_without_endokarditis",
+        "Penicillin_without_meningitis",
+        "Piperacillin",
+        "Piperacillin-Tazobactam",
+        "Polymyxin B",
+        "Posaconazole",
+        "Pristinamycin",
+        "Pyrazinamide",
+        "Rifampicin",
+        "Rifampicin_1mg-l",
+        "Sparfloxacin",
+        "Strepomycin_high_level",
+        "Streptomycin",
+        "Teicoplanin",
+        "Teicoplanin_GRD",
+        "Telithromycin",
+        "Tetracycline",
+        "Ticarcillin",
+        "Ticarcillin-Clavulan acid",
+        "Tigecycline",
+        "Tobramycin",
+        "Vancomycin",
+        "Vancomycin_GRD",
+        "Voriconazole",
+    ]
+
+    amr_year = None
     change_names = {}
 
     preprocess_pipeline = SequentialPreprocessor(

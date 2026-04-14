@@ -17,17 +17,12 @@ from lib.RecDataset import RecDataset
 # =========================
 # CONFIG
 # =========================
-DATA_PATH = '/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/data/COMBINED_MARISMA_DRIAMS.pkl'
+DATA_PATH = '/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/data/COMBINED_MARISMA_DRIAMS_samples.pkl'
 
 N_SPLITS = 5
 BATCH_SIZE = 32
 MAX_EPOCHS = 300
 PATIENCE = 15
-
-EMB_DIM_S = 30
-EMB_DIM_I = 15
-EMB_DIM_M = 10
-HIDDEN_S = [500]
 
 DEVICE = 'cpu'
 
@@ -43,9 +38,17 @@ X_all = payload["data"]
 y_species_all = payload["label"]
 amr_all = payload["amr"]
 antibiotics = payload["antibiotics"]
+hospital_all = payload["hospital"]
+sample_type_all = payload["sample_type"]
+
+# =========================
+# CHECKS
+# =========================
+assert len(X_all) == len(y_species_all) == len(amr_all) == len(hospital_all) == len(sample_type_all)
+
+print("Unique hospitals:", np.unique(hospital_all), flush=True)
 
 species_list = np.unique(y_species_all)
-
 print("Species found:", len(species_list), flush=True)
 
 
@@ -56,35 +59,42 @@ def build_db_for_species(species):
 
     mask = (y_species_all == species)
 
+    indices = np.where(mask)[0]   
+
     X = X_all[mask]
     amr = amr_all[mask]
+    hospitals = hospital_all[mask]
+    sample_types = sample_type_all[mask]
 
     rows = []
 
-    for i in range(X.shape[0]):
+    for idx_local, idx_global in enumerate(indices):
+
         for j in range(amr.shape[1]):
 
-            value = amr[i, j]
+            value = amr[idx_local, j]
 
-            if value is None:
+            if value is None or (isinstance(value, float) and np.isnan(value)) or value == -1:
                 continue
-            if isinstance(value, float) and np.isnan(value):
-                continue
-            if value == -1:
-                continue
+
+            stype = sample_types[idx_local]
+
+            if stype is None or stype == "" or (isinstance(stype, float) and np.isnan(stype)):
+                stype = "unknown"
 
             rows.append({
-                "sample_id": i,
+                "sample_id": idx_global,  
                 "item_id": antibiotics[j],
                 "resistance": int(value),
-                "maldi": X[i],
-                "sample_type": 0
+                "maldi": X[idx_local],
+                "hospital": hospitals[idx_local],
+                "sample_type": stype
             })
 
     df = pd.DataFrame(rows)
 
     # =========================
-    # FILTRADO (IGUAL QUE CODIGO 1)
+    # FILTRADO
     # =========================
     counts = df.groupby('item_id')['resistance'].count()
     valid = counts[counts > 50].index
@@ -97,11 +107,16 @@ def build_db_for_species(species):
 
     df = df[df['item_id'].isin(valid_final)].reset_index(drop=True)
 
-    # Re-encode
+    # =========================
+    # ENCODING
+    # =========================
     enc_items = LabelEncoder()
     df['item_id'] = enc_items.fit_transform(df['item_id'])
 
-    return df, enc_items
+    enc_sample = LabelEncoder()
+    df["sample_type"] = enc_sample.fit_transform(df["sample_type"])
+
+    return df, enc_items, enc_sample
 
 
 # =========================
@@ -110,11 +125,9 @@ def build_db_for_species(species):
 def create_sample_folds(sample_ids, n_splits=5, seed=42):
 
     unique_samples = np.unique(sample_ids)
-
     kf = KFold(n_splits=n_splits, shuffle=True, random_state=seed)
 
     folds = []
-
     for train_idx, test_idx in kf.split(unique_samples):
         train_samples = unique_samples[train_idx]
         test_samples = unique_samples[test_idx]
@@ -132,14 +145,15 @@ def train_species(species):
     print(f"Species: {species}")
     print("====================", flush=True)
 
-    db_rec, enc_items = build_db_for_species(species)
+    db_rec, enc_items, enc_sample = build_db_for_species(species)
 
     if len(db_rec) < 100:
         print("Too few samples, skipping...", flush=True)
         return None
 
     num_items = db_rec['item_id'].nunique()
-    num_meta = 1
+    num_hospitals = int(np.max(hospital_all)) + 1   # 🔥 dinámico
+    num_sample_types = db_rec['sample_type'].nunique()
     num_samples = db_rec['sample_id'].nunique()
 
     print("Samples:", num_samples, "Items:", num_items, flush=True)
@@ -164,9 +178,13 @@ def train_species(species):
         maldis_val = np.stack(X_val['maldi'].values)
         maldis_tst = np.stack(X_tst['maldi'].values)
 
-        meta_tr = X_tr['sample_type'].values
-        meta_val = X_val['sample_type'].values
-        meta_tst = X_tst['sample_type'].values
+        hosp_tr = X_tr['hospital'].values
+        hosp_val = X_val['hospital'].values
+        hosp_tst = X_tst['hospital'].values
+
+        stype_tr = X_tr['sample_type'].values
+        stype_val = X_val['sample_type'].values
+        stype_tst = X_tst['sample_type'].values
 
         drugs_tr = X_tr['item_id'].values
         drugs_val = X_val['item_id'].values
@@ -176,19 +194,21 @@ def train_species(species):
         res_val = X_val['resistance'].values
         res_tst = X_tst['resistance'].values
 
-        loader_tr = DataLoader(RecDataset(maldis_tr, meta_tr, drugs_tr, res_tr), batch_size=BATCH_SIZE)
-        loader_val = DataLoader(RecDataset(maldis_val, meta_val, drugs_val, res_val), batch_size=BATCH_SIZE)
-        loader_tst = DataLoader(RecDataset(maldis_tst, meta_tst, drugs_tst, res_tst), batch_size=BATCH_SIZE)
+        loader_tr = DataLoader(
+            RecDataset(maldis_tr, hosp_tr, stype_tr, drugs_tr, res_tr),
+            batch_size=BATCH_SIZE
+        )
+
+        loader_val = DataLoader(
+            RecDataset(maldis_val, hosp_val, stype_val, drugs_val, res_val),
+            batch_size=BATCH_SIZE
+        )
 
         model = NCF(
             num_feat=maldis_tr.shape[1],
             num_items=num_items,
-            num_meta=num_meta,
-            sample_encoder='CNN',
-            embedding_dim_samples=EMB_DIM_S,
-            embedding_dim_items=EMB_DIM_I,
-            embedding_dim_metadata=EMB_DIM_M,
-            hidden_dim_samples=HIDDEN_S
+            num_hospitals=num_hospitals,
+            num_sample_types=num_sample_types,
         )
 
         trainer = pl.Trainer(
@@ -207,16 +227,16 @@ def train_species(species):
         with torch.no_grad():
             preds = model(
                 torch.tensor(maldis_tst).float(),
-                torch.tensor(meta_tst).long(),
+                torch.tensor(hosp_tst).long(),
+                torch.tensor(stype_tst).long(),
                 torch.tensor(drugs_tst).long()
-            ).numpy()
+            ).cpu().numpy()
 
         # ======================
         # MICRO AUC
         # ======================
         if len(np.unique(res_tst)) > 1:
-            auc_micro = roc_auc_score(res_tst, preds)
-            fold_micro.append(auc_micro)
+            fold_micro.append(roc_auc_score(res_tst, preds))
 
         # ======================
         # MACRO AUC
@@ -227,8 +247,7 @@ def train_species(species):
             mask = (drugs_tst == d)
 
             if len(np.unique(res_tst[mask])) > 1:
-                auc_d = roc_auc_score(res_tst[mask], preds[mask])
-                antibiotic_aucs.append(auc_d)
+                antibiotic_aucs.append(roc_auc_score(res_tst[mask], preds[mask]))
 
         if len(antibiotic_aucs) > 0:
             fold_macro.append(np.mean(antibiotic_aucs))
@@ -269,4 +288,4 @@ df_results = df_results.sort_values(by="auc_macro", ascending=False)
 print("\nFINAL RESULTS:")
 print(df_results)
 
-df_results.to_csv("results_code2_mlp.csv", index=False)
+df_results.to_csv("results_code_mlp_metadata.csv", index=False)
