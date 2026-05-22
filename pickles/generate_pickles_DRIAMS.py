@@ -91,7 +91,7 @@ def collect_species(dataset_path, preprocess_pipeline, species_list, logger,
 
     logger.info("Querying DRIAMS_A B AND C...")
     spectra_dict = manager.query_spectra_dict(
-        centers=["DRIAMS_A", "DRIAMS_B", "DRIAMS_C"],
+        centers=["DRIAMS_A"],
         genus_species=species_list
     )
 
@@ -216,7 +216,7 @@ def main(name, preprocess_pipeline, species_list,
 # ==========================================================
 if __name__ == "__main__":
 
-    name = "DRIAMS_ABC_samples"
+    name = "DRIAMS_A"
 
     species_list = [
         ("Staphylococcus", "Aureus"),

@@ -1,0 +1,24 @@
+species,n_driams_a_samples,n_driams_bc_ood_samples,n_antibiotics,n_train_pairs,n_val_pairs,ood_auc,ood_macro_auc,antibiotics
+Klebsiella_Variicola,560,43,3,1167,297,0.9100529100529101,0.9365079365079364,Ciprofloxacin;Norfloxacin;Piperacillin-Tazobactam
+Staphylococcus_Haemolyticus,234,34,12,2180,544,0.8627861738740087,0.7672307086137856,Amoxicillin-Clavulanic acid;Cefepime;Ciprofloxacin;Clindamycin;Erythromycin;Fusidic acid;Gentamicin;Oxacillin;Rifampicin;Teicoplanin;Tetracycline;Tigecycline
+Haemophilus_Influenzae,443,62,3,632,150,0.7597390493942218,0.7430537092539371,Amoxicillin-Clavulanic acid;Cefuroxime;Penicillin
+Staphylococcus_Capitis,366,33,7,1895,490,0.6208863536638876,0.6828445609012836,Amoxicillin-Clavulanic acid;Cefepime;Ciprofloxacin;Clindamycin;Erythromycin;Fusidic acid;Oxacillin
+Proteus_Mirabilis,916,305,10,6820,1720,0.7059292378724499,0.6817376042114084,Amoxicillin-Clavulanic acid;Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Cotrimoxazole;Imipenem;Meropenem;Norfloxacin;Piperacillin-Tazobactam
+Klebsiella_Oxytoca,717,178,8,4237,1056,0.5896274250440916,0.6787253517305272,Amoxicillin-Clavulanic acid;Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Cotrimoxazole;Norfloxacin;Piperacillin-Tazobactam
+Staphylococcus_Epidermidis,4803,260,14,46216,11535,0.7524118853951968,0.6404322734645346,Amoxicillin-Clavulanic acid;Cefepime;Ciprofloxacin;Clindamycin;Cotrimoxazole;Daptomycin;Erythromycin;Fusidic acid;Gentamicin;Mupirocin;Oxacillin;Penicillin;Rifampicin;Tetracycline
+Enterococcus_Faecium,1199,136,7,5154,1311,0.8686752414794054,0.6224319261789594,Gentamicin_high_level;Imipenem;Levofloxacin;Linezolid;Nitrofurantoin;Teicoplanin;Vancomycin
+Escherichia_Coli,5003,1140,11,37503,9421,0.6778445625223307,0.6172331452900864,Amikacin;Amoxicillin-Clavulanic acid;Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Cotrimoxazole;Ertapenem;Nitrofurantoin;Norfloxacin;Piperacillin-Tazobactam
+Staphylococcus_Hominis,720,42,8,4388,1065,0.7166525063721325,0.6062445624550887,Amoxicillin-Clavulanic acid;Cefepime;Ciprofloxacin;Clindamycin;Erythromycin;Fusidic acid;Oxacillin;Tetracycline
+Enterococcus_Faecalis,794,702,5,2036,515,0.6441332838773491,0.6009153621932709,Gentamicin_high_level;Imipenem;Levofloxacin;Nitrofurantoin;Vancomycin
+Pseudomonas_Aeruginosa,3296,499,7,15876,3908,0.5829335931644432,0.5928481064675101,Amikacin;Cefepime;Ceftazidime;Ciprofloxacin;Imipenem;Meropenem;Piperacillin-Tazobactam
+Campylobacter_Jejuni,299,73,2,478,120,0.778505305938135,0.5836213517665131,Ciprofloxacin;Erythromycin
+Staphylococcus_Lugdunensis,314,94,6,1464,364,0.6466998698793017,0.5749756597045145,Amoxicillin-Clavulanic acid;Cefepime;Clindamycin;Fusidic acid;Oxacillin;Penicillin
+Staphylococcus_Aureus,3805,1089,13,38164,9541,0.7890712189544616,0.5713532948246364,Amoxicillin-Clavulanic acid;Cefepime;Ciprofloxacin;Clindamycin;Cotrimoxazole;Erythromycin;Fusidic acid;Gentamicin;Mupirocin;Oxacillin;Penicillin;Rifampicin;Tetracycline
+Klebsiella_Pneumoniae,2875,518,13,28727,7154,0.5825039005054672,0.5488733941287958,Amikacin;Amoxicillin-Clavulanic acid;Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Colistin;Cotrimoxazole;Ertapenem;Imipenem;Meropenem;Norfloxacin;Piperacillin-Tazobactam
+Enterobacter_Cloacae,1271,239,8,7348,1813,0.6040868099598617,0.5483861321802802,Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Cotrimoxazole;Ertapenem;Norfloxacin;Piperacillin-Tazobactam
+Morganella_Morganii,349,124,7,1724,430,0.6208080170441095,0.530890791393227,Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Cotrimoxazole;Imipenem;Norfloxacin
+Streptococcus_Pneumoniae,291,47,2,259,62,0.5615942028985508,0.524090909090909,Ceftriaxone;Clarithromycin
+Citrobacter_Koseri,469,159,3,952,239,0.504235907461714,0.4835253637878993,Amoxicillin-Clavulanic acid;Norfloxacin;Piperacillin-Tazobactam
+Serratia_Marcescens,864,103,7,4225,1064,0.38518518518518513,0.46145210546901516,Amikacin;Cefepime;Ceftazidime;Ceftriaxone;Ciprofloxacin;Norfloxacin;Piperacillin-Tazobactam
+Proteus_Vulgaris,321,86,4,959,244,0.628381190178943,0.3976809517442748,Amoxicillin-Clavulanic acid;Ciprofloxacin;Cotrimoxazole;Imipenem
+Citrobacter_Freundii,409,72,5,1593,404,0.4441307773109244,0.30307195507195506,Cefepime;Ceftazidime;Ceftriaxone;Cotrimoxazole;Piperacillin-Tazobactam

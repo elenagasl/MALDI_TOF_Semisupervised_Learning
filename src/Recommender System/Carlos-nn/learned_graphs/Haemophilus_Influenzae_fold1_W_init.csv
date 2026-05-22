@@ -1,0 +1,12 @@
+,Amoxicillin,Amoxicillin-Clavulanic acid,Ampicillin,Ceftriaxone,Cefuroxime,Ciprofloxacin,Clarithromycin,Levofloxacin,Meropenem_with_meningitis,Meropenem_without_meningitis,Penicillin
+Amoxicillin,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Amoxicillin-Clavulanic acid,0.0,0.0,0.0,0.5809475,0.4217757,0.0,0.0,0.0,0.0,0.6666667,0.6260127
+Ampicillin,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Ceftriaxone,0.0,0.5809475,0.0,0.0,0.3077935,0.0,0.0,0.0,0.0,1.0,0.35981146
+Cefuroxime,0.0,0.4217757,0.0,0.3077935,0.0,0.0,0.0,0.0,0.0,0.0,0.55861694
+Ciprofloxacin,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Clarithromycin,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Levofloxacin,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Meropenem_with_meningitis,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Meropenem_without_meningitis,0.0,0.6666667,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+Penicillin,0.0,0.6260127,0.0,0.35981146,0.55861694,0.0,0.0,0.0,0.0,0.0,0.0
