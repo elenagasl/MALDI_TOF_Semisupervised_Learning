@@ -368,4 +368,4 @@ This project is released for academic use. Please contact the authors before usi
 
 ## Contact
 
-Elena Garcia Arroyo — `egarroyo@` — Universidad Carlos III de Madrid / Hospital Ramón y Cajal
+Elena Garcia Arroyo — `elenagarciarroyo16@gmail.com` — Universidad Carlos III de Madrid
