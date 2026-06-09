@@ -1,3 +1,0 @@
-Species,Task,Antibiotic,CV_WF1,Retrain_Val_WF1,Test_WF1,Test_ACC,Test_HL,hp_activation,hp_solver,hp_lr,hp_layer1,hp_layer2,hp_layer3,model_path,n_patterns
-Pseudomonas_Aeruginosa,lps_multiclass,ALL,0.8682843857718467,0.8733196654276844,0.8451670513388461,0.8628318584070797,0.13716814159292035,relu,adam,0.004215968282365892,402,208,435,saved_models2/benchmark_mlp_20260304_195812/Pseudomonas_Aeruginosa/lps_model/Pseudomonas_Aeruginosa__lps.pt,6.0
-Pseudomonas_Aeruginosa,direct_multilabel,ALL,0.8669185742695007,0.8410257464459537,0.850278465480156,0.8761061946902654,0.1238938053097345,relu,adam,0.002765076022894333,463,472,327,saved_models2/benchmark_mlp_20260304_195812/Pseudomonas_Aeruginosa/multilabel_model/Pseudomonas_Aeruginosa__multilabel.pt,

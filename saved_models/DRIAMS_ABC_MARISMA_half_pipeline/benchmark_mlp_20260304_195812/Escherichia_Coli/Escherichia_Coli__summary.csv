@@ -1,3 +1,0 @@
-Species,Task,Antibiotic,CV_WF1,Retrain_Val_WF1,Test_WF1,Test_ACC,Test_HL,hp_activation,hp_solver,hp_lr,hp_layer1,hp_layer2,hp_layer3,model_path,n_patterns
-Escherichia_Coli,lps_multiclass,ALL,0.8654959734403287,0.8760797417384886,0.8517902138223518,0.867741935483871,0.13225806451612904,relu,adam,2.4378878006413237e-05,481,24,500,saved_models2/benchmark_mlp_20260304_195812/Escherichia_Coli/lps_model/Escherichia_Coli__lps.pt,11.0
-Escherichia_Coli,direct_multilabel,ALL,0.8646284220353448,0.8743924344374159,0.847743944659441,0.8631720430107527,0.13682795698924732,tanh,adam,1.7708879893278444e-05,477,456,73,saved_models2/benchmark_mlp_20260304_195812/Escherichia_Coli/multilabel_model/Escherichia_Coli__multilabel.pt,
