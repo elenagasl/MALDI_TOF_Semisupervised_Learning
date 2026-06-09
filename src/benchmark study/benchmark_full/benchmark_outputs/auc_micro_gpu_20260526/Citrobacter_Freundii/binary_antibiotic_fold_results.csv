@@ -1,0 +1,11 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Citrobacter_Freundii,Citrobacter Freundii,0,Amikacin,0.5927835051546392,401,101
+Citrobacter_Freundii,Citrobacter Freundii,0,Ceftazidime,0.6123084291187739,401,101
+Citrobacter_Freundii,Citrobacter Freundii,0,Ciprofloxacin,0.935374149659864,401,101
+Citrobacter_Freundii,Citrobacter Freundii,0,Levofloxacin,0.8826530612244898,401,101
+Citrobacter_Freundii,Citrobacter Freundii,0,Tobramycin,0.8157216494845361,401,101
+Citrobacter_Freundii,Citrobacter Freundii,1,Amikacin,0.520618556701031,401,101
+Citrobacter_Freundii,Citrobacter Freundii,1,Ceftazidime,0.6044061302681991,401,101
+Citrobacter_Freundii,Citrobacter Freundii,1,Ciprofloxacin,0.7653061224489797,401,101
+Citrobacter_Freundii,Citrobacter Freundii,1,Levofloxacin,0.8061224489795918,401,101
+Citrobacter_Freundii,Citrobacter Freundii,1,Tobramycin,0.7551546391752577,401,101

@@ -1,0 +1,19 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Amikacin,0.8748914930555556,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Cefepime,0.6693034238488784,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Ceftazidime,0.8029255319148937,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Ciprofloxacin,0.7426684881602914,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Imipenem,0.627193695157621,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Levofloxacin,0.7006375227686703,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Meropenem,0.56502079002079,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Piperacillin-Tazobactam,0.6326488020702897,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,Tobramycin,1.0,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Amikacin,0.7138671875,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Cefepime,0.7213695395513577,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Ceftazidime,0.7220744680851064,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Ciprofloxacin,0.7536429872495445,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Imipenem,0.597294442638934,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Levofloxacin,0.7227686703096539,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Meropenem,0.5672557172557173,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Piperacillin-Tazobactam,0.6432924284163953,1581,396
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,Tobramycin,0.9010152284263959,1581,396

@@ -1,0 +1,3 @@
+species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
+Escherichia_Coli,Escherichia Coli,0,3267,817,14,37,0.8306342601300603,0.8948357950477458,0.8641358543772654,0.7967716294111499,0.7940486976312793,0.7668441200618492
+Escherichia_Coli,Escherichia Coli,1,3267,817,14,37,0.8226773558928713,0.8818801134795382,0.8712048890250232,0.7839890810073112,0.7844926194246161,0.7648048909893677

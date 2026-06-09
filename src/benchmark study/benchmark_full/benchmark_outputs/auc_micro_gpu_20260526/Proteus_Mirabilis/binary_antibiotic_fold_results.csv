@@ -1,0 +1,13 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Proteus_Mirabilis,Proteus Mirabilis,0,Ampicillin,0.6182539682539683,516,129
+Proteus_Mirabilis,Proteus Mirabilis,0,Ciprofloxacin,0.7878965922444184,516,129
+Proteus_Mirabilis,Proteus Mirabilis,0,Fosfomycin,0.626951995373048,516,129
+Proteus_Mirabilis,Proteus Mirabilis,0,Gentamicin,0.5612480739599384,516,129
+Proteus_Mirabilis,Proteus Mirabilis,0,Levofloxacin,0.8243243243243243,516,129
+Proteus_Mirabilis,Proteus Mirabilis,0,Norfloxacin,0.797737955346651,516,129
+Proteus_Mirabilis,Proteus Mirabilis,1,Ampicillin,0.5742063492063493,516,129
+Proteus_Mirabilis,Proteus Mirabilis,1,Ciprofloxacin,0.8058166862514688,516,129
+Proteus_Mirabilis,Proteus Mirabilis,1,Fosfomycin,0.611336032388664,516,129
+Proteus_Mirabilis,Proteus Mirabilis,1,Gentamicin,0.5835901386748845,516,129
+Proteus_Mirabilis,Proteus Mirabilis,1,Levofloxacin,0.8212397179788484,516,129
+Proteus_Mirabilis,Proteus Mirabilis,1,Norfloxacin,0.8332843713278496,516,129

@@ -1,0 +1,5 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Serratia_Marcescens,Serratia Marcescens,0,Amikacin,0.8170396959459459,716,180
+Serratia_Marcescens,Serratia Marcescens,0,Ciprofloxacin,0.9056513409961686,716,180
+Serratia_Marcescens,Serratia Marcescens,1,Amikacin,0.719066722972973,716,180
+Serratia_Marcescens,Serratia Marcescens,1,Ciprofloxacin,0.8898467432950191,716,180

@@ -1,0 +1,3 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Klebsiella_Variicola,Klebsiella Variicola,0,Cotrimoxazole,0.4935897435897436,428,107
+Klebsiella_Variicola,Klebsiella Variicola,1,Cotrimoxazole,0.8141025641025641,428,107

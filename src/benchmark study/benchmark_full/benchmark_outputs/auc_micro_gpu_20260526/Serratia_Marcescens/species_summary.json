@@ -1,0 +1,30 @@
+{
+  "species": "Serratia_Marcescens",
+  "species_pretty": "Serratia Marcescens",
+  "n_samples_final": 896,
+  "input_dim": 6000,
+  "n_antibiotics": 5,
+  "selected_antibiotics": [
+    "Amikacin",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Imipenem"
+  ],
+  "n_unique_lps_patterns": 5,
+  "binary_micro_auc_mean": 0.8434333115397188,
+  "binary_micro_auc_std": 0.013724898703155054,
+  "multilabel_micro_auc_mean": 0.8927291312659302,
+  "multilabel_micro_auc_std": 0.01838920699267793,
+  "lps_micro_auc_mean": 0.8691323279524213,
+  "lps_micro_auc_std": 0.014981712281936723,
+  "binary_macro_auc_mean": 0.8329011258025266,
+  "binary_macro_auc_std": 0.04022644588530182,
+  "multilabel_macro_auc_mean": 0.7349135385773887,
+  "multilabel_macro_auc_std": 0.045487006921106694,
+  "lps_macro_auc_mean": 0.6991119176142098,
+  "lps_macro_auc_std": 0.02457938928658912,
+  "best_ours": "multilabel",
+  "best_auc": 0.8927291312659302,
+  "elapsed_seconds": 14.979310750961304
+}

@@ -1,0 +1,3 @@
+species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,0,1581,396,10,14,0.7095006812029984,0.7457596969159968,0.739555308534575,0.7350321941107766,0.7171057657819234,0.7222250199737791
+Pseudomonas_Aeruginosa,Pseudomonas Aeruginosa,1,1581,396,10,14,0.634544344214576,0.735133095978391,0.7412401527234064,0.7047311854925673,0.6725312280888555,0.6819515089663829

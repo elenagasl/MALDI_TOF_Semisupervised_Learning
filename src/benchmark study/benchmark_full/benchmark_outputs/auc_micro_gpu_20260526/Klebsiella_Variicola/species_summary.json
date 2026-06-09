@@ -1,0 +1,33 @@
+{
+  "species": "Klebsiella_Variicola",
+  "species_pretty": "Klebsiella Variicola",
+  "n_samples_final": 535,
+  "input_dim": 6000,
+  "n_antibiotics": 8,
+  "selected_antibiotics": [
+    "Cefepime",
+    "Ceftazidime",
+    "Ceftriaxone",
+    "Ciprofloxacin",
+    "Colistin",
+    "Cotrimoxazole",
+    "Ertapenem",
+    "Levofloxacin"
+  ],
+  "n_unique_lps_patterns": 2,
+  "binary_micro_auc_mean": 0.6538461538461539,
+  "binary_micro_auc_std": 0.22663678884184213,
+  "multilabel_micro_auc_mean": 0.6652989449003517,
+  "multilabel_micro_auc_std": 0.2528341949142989,
+  "lps_micro_auc_mean": 0.9460726846424385,
+  "lps_micro_auc_std": 0.012158147077846015,
+  "binary_macro_auc_mean": 0.6538461538461539,
+  "binary_macro_auc_std": 0.22663678884184213,
+  "multilabel_macro_auc_mean": 0.7011217948717948,
+  "multilabel_macro_auc_std": 0.2753636984428382,
+  "lps_macro_auc_mean": 0.5576923076923077,
+  "lps_macro_auc_std": 0.09972018709041054,
+  "best_ours": "lps",
+  "best_auc": 0.9460726846424385,
+  "elapsed_seconds": 7.579569339752197
+}

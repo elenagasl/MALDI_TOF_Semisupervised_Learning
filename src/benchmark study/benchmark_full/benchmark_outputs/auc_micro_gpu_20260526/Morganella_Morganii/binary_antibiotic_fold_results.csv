@@ -1,0 +1,11 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Morganella_Morganii,Morganella Morganii,0,Ceftazidime,0.6536263736263737,461,116
+Morganella_Morganii,Morganella Morganii,0,Ciprofloxacin,0.800453514739229,461,116
+Morganella_Morganii,Morganella Morganii,0,Imipenem,0.910873440285205,461,116
+Morganella_Morganii,Morganella Morganii,0,Levofloxacin,0.8044217687074829,461,116
+Morganella_Morganii,Morganella Morganii,0,Tobramycin,0.8731563421828908,461,116
+Morganella_Morganii,Morganella Morganii,1,Ceftazidime,0.703076923076923,461,116
+Morganella_Morganii,Morganella Morganii,1,Ciprofloxacin,0.8106575963718821,461,116
+Morganella_Morganii,Morganella Morganii,1,Imipenem,0.9489007724301842,461,116
+Morganella_Morganii,Morganella Morganii,1,Levofloxacin,0.7182539682539683,461,116
+Morganella_Morganii,Morganella Morganii,1,Tobramycin,0.6696165191740413,461,116

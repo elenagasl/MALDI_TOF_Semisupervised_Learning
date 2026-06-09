@@ -1,0 +1,21 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Escherichia_Coli,Escherichia Coli,0,Amikacin,0.7848133848133848,3267,817
+Escherichia_Coli,Escherichia Coli,0,Amoxicillin-Clavulanic acid,0.5,3267,817
+Escherichia_Coli,Escherichia Coli,0,Cefepime,0.9158417844427662,3267,817
+Escherichia_Coli,Escherichia Coli,0,Ceftazidime,0.9014616623312277,3267,817
+Escherichia_Coli,Escherichia Coli,0,Ceftriaxone,0.8915051771634844,3267,817
+Escherichia_Coli,Escherichia Coli,0,Ciprofloxacin,0.8640573834398877,3267,817
+Escherichia_Coli,Escherichia Coli,0,Cotrimoxazole,0.7547588099364528,3267,817
+Escherichia_Coli,Escherichia Coli,0,Levofloxacin,0.855539529081553,3267,817
+Escherichia_Coli,Escherichia Coli,0,Piperacillin-Tazobactam,0.7387733887733888,3267,817
+Escherichia_Coli,Escherichia Coli,0,Tobramycin,0.7609651741293533,3267,817
+Escherichia_Coli,Escherichia Coli,1,Amikacin,0.7826576576576576,3267,817
+Escherichia_Coli,Escherichia Coli,1,Amoxicillin-Clavulanic acid,0.5140824481044732,3267,817
+Escherichia_Coli,Escherichia Coli,1,Cefepime,0.8690864710324738,3267,817
+Escherichia_Coli,Escherichia Coli,1,Ceftazidime,0.8523287501548371,3267,817
+Escherichia_Coli,Escherichia Coli,1,Ceftriaxone,0.8573430227035242,3267,817
+Escherichia_Coli,Escherichia Coli,1,Ciprofloxacin,0.8386246686418212,3267,817
+Escherichia_Coli,Escherichia Coli,1,Cotrimoxazole,0.7228227902946274,3267,817
+Escherichia_Coli,Escherichia Coli,1,Levofloxacin,0.8332215811632621,3267,817
+Escherichia_Coli,Escherichia Coli,1,Piperacillin-Tazobactam,0.828031878031878,3267,817
+Escherichia_Coli,Escherichia Coli,1,Tobramycin,0.7416915422885573,3267,817

@@ -1,0 +1,15 @@
+species,species_pretty,fold,antibiotic,auc,n_train,n_test
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Ceftazidime,0.7617530895655497,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Ceftriaxone,0.5570121951219512,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Colistin,0.990521327014218,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Cotrimoxazole,0.8161407766990292,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Ertapenem,0.8028475711892797,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Piperacillin-Tazobactam,0.6916904664762682,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,0,Tobramycin,0.9826224328593998,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Ceftazidime,0.6805325519174418,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Ceftriaxone,0.5176219512195123,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Colistin,0.9620853080568721,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Cotrimoxazole,0.9872572815533981,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Ertapenem,0.8420435510887772,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Piperacillin-Tazobactam,0.6642186862505101,856,214
+Enterobacter_Cloacae,Enterobacter Cloacae,1,Tobramycin,1.0,856,214

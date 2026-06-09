@@ -1,15 +1,26 @@
 # ============================================================
-# GLOBAL RECOMMENDER WITH SPECIES-SPECIFIC MALDI HEADS
+# GLOBAL RECOMMENDER WITH IMPLICIT SPECIES HYPERNETWORK
 #
-# Runs two experiments:
-#   1) species_only
-#   2) global_plus_species
+# Architecture:
+#   1) Global MALDI encoder:
+#          MALDI -> z_maldi
 #
-# Baseline inputs:
-#   MALDI + species embedding + antibiotic embedding
+#   2) Species hypernetwork:
+#          species_embedding -> delta_species
 #
-# Difference:
-#   The MALDI encoder is now species-conditioned.
+#   3) Species-adapted MALDI representation:
+#          z_final = z_maldi + alpha * delta_species
+#
+#   4) Final recommender:
+#          concat(z_final, species_embedding, antibiotic_embedding)
+#          -> resistance logit
+#
+# Output files:
+#   - implicit_species_fold_results.csv
+#   - implicit_species_per_species.csv
+#   - implicit_species_per_antibiotic.csv
+#   - implicit_species_summary.csv
+#   - implicit_species_mappings.json
 # ============================================================
 
 import os
@@ -38,11 +49,11 @@ from pytorch_lightning.callbacks import EarlyStopping
 
 DATA_PATH = "/export/usuarios01/egarroyo/MALDI_for_AMR_prediction/data/COMBINED_MARISMA_DRIAMS_samples.pkl"
 
-OUTPUT_FOLD_CSV = "species_head_comparison_fold_results.csv"
-OUTPUT_SPECIES_CSV = "species_head_comparison_per_species.csv"
-OUTPUT_ANTIBIOTIC_CSV = "species_head_comparison_per_antibiotic.csv"
-OUTPUT_SUMMARY_CSV = "species_head_comparison_summary.csv"
-OUTPUT_MAPPING_JSON = "species_head_comparison_mappings.json"
+OUTPUT_FOLD_CSV = "implicit_species_fold_results.csv"
+OUTPUT_SPECIES_CSV = "implicit_species_per_species.csv"
+OUTPUT_ANTIBIOTIC_CSV = "implicit_species_per_antibiotic.csv"
+OUTPUT_SUMMARY_CSV = "implicit_species_summary.csv"
+OUTPUT_MAPPING_JSON = "implicit_species_mappings.json"
 
 N_SPLITS = 5
 RANDOM_STATE = 42
@@ -53,42 +64,33 @@ MIN_VAL_OBS_PER_ANTIBIOTIC = 5
 
 # Training
 BATCH_SIZE = 256
-VAL_BATCH_SIZE = 128
+VAL_BATCH_SIZE = 512
 MAX_EPOCHS = 300
 PATIENCE = 15
 LR = 1e-3
 
-# Model
+# Model dimensions
+MALDI_EMB_DIM = 32
 DRUG_EMB_DIM = 16
 SPECIES_EMB_DIM = 16
+HYPERNET_HIDDEN_DIM = 64
 HIDDEN_DIMS = [128, 64]
-
-# Two experiments to run
-MALDI_HEAD_MODES = [
-    "species_only",
-    "global_plus_species",
-]
-
-CPU_THREADS = min(4, os.cpu_count())
-
-torch.set_num_threads(CPU_THREADS)
-torch.set_num_interop_threads(1)
-
-BATCH_SIZE = 256
-VAL_BATCH_SIZE = 512
-NUM_WORKERS = 0
 
 # Dataloader
 NUM_WORKERS = 0
 
+# CPU settings
+CPU_THREADS = min(8, os.cpu_count())
+torch.set_num_threads(CPU_THREADS)
+torch.set_num_interop_threads(1)
+
 # Reproducibility
 pl.seed_everything(RANDOM_STATE, workers=True)
-torch.set_num_threads(8)
 
 if torch.cuda.is_available():
     print("CUDA available:", torch.cuda.get_device_name(0), flush=True)
 else:
-    print("WARNING: CUDA is not available. This script expects accelerator='gpu'.", flush=True)
+    print("WARNING: CUDA is not available. Running on CPU.", flush=True)
 
 
 # ============================================================
@@ -147,45 +149,25 @@ class GlobalRecDataset(Dataset):
 # MODEL
 # ============================================================
 
-class SpeciesConditionedMALDIEncoder(nn.Module):
+class GlobalMALDIEncoder(nn.Module):
     """
-    Species-conditioned MALDI encoder.
+    Standard global MALDI encoder.
 
-    Shared backbone:
-        num_feat -> 512 -> 128
+    This is intentionally NOT species-specific.
 
-    Global head:
-        128 -> 64 -> 32
+    Input:
+        MALDI spectrum [batch_size, num_feat]
 
-    Species-specific heads:
-        one head per species
-        each: 128 -> 64 -> 32
-
-    Modes:
-        species_only:
-            output = h_species
-            output_dim = 32
-
-        global_plus_species:
-            output = concat(h_global, h_species)
-            output_dim = 64
+    Output:
+        z_maldi [batch_size, maldi_emb_dim]
     """
 
-    def __init__(
-        self,
-        input_dim,
-        num_species,
-        mode="species_only"
-    ):
+    def __init__(self, input_dim, maldi_emb_dim=32):
         super().__init__()
 
-        assert mode in ["species_only", "global_plus_species"]
+        self.output_dim = maldi_emb_dim
 
-        self.mode = mode
-        self.num_species = num_species
-
-        # Shared MALDI backbone
-        self.backbone = nn.Sequential(
+        self.encoder = nn.Sequential(
             nn.Linear(input_dim, 512),
             nn.GELU(),
             nn.Dropout(0.2),
@@ -193,90 +175,68 @@ class SpeciesConditionedMALDIEncoder(nn.Module):
             nn.Linear(512, 128),
             nn.GELU(),
             nn.Dropout(0.2),
-        )
 
-        # Global MALDI head
-        self.global_head = nn.Sequential(
             nn.Linear(128, 64),
             nn.GELU(),
             nn.Dropout(0.2),
 
-            nn.Linear(64, 32),
+            nn.Linear(64, maldi_emb_dim),
             nn.GELU()
         )
 
-        # One trainable MALDI head per species
-        self.species_heads = nn.ModuleList(
-            [
-                nn.Sequential(
-                    nn.Linear(128, 64),
-                    nn.GELU(),
-                    nn.Dropout(0.2),
+    def forward(self, maldi):
+        return self.encoder(maldi.float())
 
-                    nn.Linear(64, 32),
-                    nn.GELU()
-                )
-                for _ in range(num_species)
-            ]
+
+class SpeciesHypernetwork(nn.Module):
+    """
+    Species hypernetwork.
+
+    It receives the species embedding and produces a species-specific
+    correction vector with the SAME dimensionality as the MALDI embedding.
+
+    Input:
+        species_emb [batch_size, species_emb_dim]
+
+    Output:
+        delta_species [batch_size, maldi_emb_dim]
+    """
+
+    def __init__(
+        self,
+        species_emb_dim=16,
+        maldi_emb_dim=32,
+        hidden_dim=64
+    ):
+        super().__init__()
+
+        self.net = nn.Sequential(
+            nn.Linear(species_emb_dim, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(0.1),
+
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.GELU(),
+            nn.Dropout(0.1),
+
+            nn.Linear(hidden_dim, maldi_emb_dim)
         )
 
-        if self.mode == "species_only":
-            self.output_dim = 32
-        elif self.mode == "global_plus_species":
-            self.output_dim = 64
-
-    def forward(self, maldi, species_id):
-        """
-        maldi:
-            [batch_size, num_feat]
-
-        species_id:
-            [batch_size]
-
-        returns:
-            species_only:
-                [batch_size, 32]
-
-            global_plus_species:
-                [batch_size, 64]
-        """
-
-        z = self.backbone(maldi.float())
-
-        h_global = self.global_head(z)
-
-        h_species = torch.zeros_like(h_global)
-
-        # Apply the corresponding species-specific head to each sample.
-        # This loop is fine because num_species is small.
-        unique_species = torch.unique(species_id.long())
-
-        for sp in unique_species:
-            sp_int = int(sp.item())
-            mask = species_id.long() == sp
-
-            h_species[mask] = self.species_heads[sp_int](z[mask])
-
-        if self.mode == "species_only":
-            return h_species
-
-        if self.mode == "global_plus_species":
-            return torch.cat([h_global, h_species], dim=-1)
-
-        raise ValueError(f"Unknown mode: {self.mode}")
+    def forward(self, species_emb):
+        return self.net(species_emb)
 
 
-class GlobalSpeciesHeadNCF(pl.LightningModule):
+class GlobalImplicitSpeciesNCF(pl.LightningModule):
     """
-    Global species-conditioned recommender with species-specific MALDI heads.
+    Global recommender with implicit species-conditioned MALDI correction.
 
-    Inputs:
-        MALDI spectrum
-        species_id
-        antibiotic_id
-
-    Prediction:
-        resistance logit
+    Steps:
+        1) MALDI -> global MALDI embedding
+        2) species_id -> species embedding
+        3) species embedding -> hypernetwork -> delta_species
+        4) final MALDI embedding = global MALDI embedding + alpha * delta_species
+        5) concat(final MALDI embedding, species embedding, antibiotic embedding)
+        6) final MLP -> resistance logit
     """
 
     def __init__(
@@ -284,9 +244,10 @@ class GlobalSpeciesHeadNCF(pl.LightningModule):
         num_feat,
         num_items,
         num_species,
-        maldi_head_mode="species_only",
+        maldi_emb_dim=32,
         drug_emb_dim=16,
         species_emb_dim=16,
+        hypernet_hidden_dim=64,
         hidden_dims=[128, 64],
         lr=1e-3
     ):
@@ -295,22 +256,43 @@ class GlobalSpeciesHeadNCF(pl.LightningModule):
         self.save_hyperparameters()
 
         self.lr = lr
-        self.maldi_head_mode = maldi_head_mode
+        self.maldi_emb_dim = maldi_emb_dim
+        self.drug_emb_dim = drug_emb_dim
+        self.species_emb_dim = species_emb_dim
 
-        self.maldi_encoder = SpeciesConditionedMALDIEncoder(
+        # Global MALDI encoder
+        self.maldi_encoder = GlobalMALDIEncoder(
             input_dim=num_feat,
-            num_species=num_species,
-            mode=maldi_head_mode
+            maldi_emb_dim=maldi_emb_dim
         )
 
-        self.drug_embedding = nn.Embedding(num_items, drug_emb_dim)
+        # Standard embeddings
+        self.species_embedding = nn.Embedding(
+            num_species,
+            species_emb_dim
+        )
 
-        self.species_embedding = nn.Embedding(num_species, species_emb_dim)
+        self.drug_embedding = nn.Embedding(
+            num_items,
+            drug_emb_dim
+        )
+
+        # Species hypernetwork:
+        # species_embedding -> MALDI correction
+        self.species_hypernetwork = SpeciesHypernetwork(
+            species_emb_dim=species_emb_dim,
+            maldi_emb_dim=maldi_emb_dim,
+            hidden_dim=hypernet_hidden_dim
+        )
+
+        # Learnable scaling factor for the residual correction.
+        # It starts small so the model begins close to the global recommender.
+        self.alpha = nn.Parameter(torch.tensor(0.1))
 
         fusion_input_dim = (
-            self.maldi_encoder.output_dim
-            + drug_emb_dim
+            maldi_emb_dim
             + species_emb_dim
+            + drug_emb_dim
         )
 
         sizes = [fusion_input_dim] + list(hidden_dims) + [1]
@@ -329,18 +311,39 @@ class GlobalSpeciesHeadNCF(pl.LightningModule):
         self.loss_fn = nn.BCEWithLogitsLoss()
 
     def forward(self, maldi, species_id, drug_id):
-        maldi_emb = self.maldi_encoder(
-            maldi=maldi,
-            species_id=species_id
-        )
+        """
+        maldi:
+            [batch_size, num_feat]
 
+        species_id:
+            [batch_size]
+
+        drug_id:
+            [batch_size]
+
+        returns:
+            logits [batch_size, 1]
+        """
+
+        # 1) Global MALDI embedding
+        z_maldi = self.maldi_encoder(maldi)
+
+        # 2) Species embedding
         species_emb = self.species_embedding(species_id.long())
 
+        # 3) Hypernetwork generates species correction
+        delta_species = self.species_hypernetwork(species_emb)
+
+        # 4) Residual species adaptation
+        z_final = z_maldi + self.alpha * delta_species
+
+        # 5) Antibiotic embedding
         drug_emb = self.drug_embedding(drug_id.long())
 
+        # 6) Final recommender input
         x = torch.cat(
             [
-                maldi_emb,
+                z_final,
                 species_emb,
                 drug_emb
             ],
@@ -365,6 +368,7 @@ class GlobalSpeciesHeadNCF(pl.LightningModule):
         loss = self.loss_fn(logits, labels)
 
         self.log("loss_tr", loss, prog_bar=True)
+        self.log("alpha", self.alpha.detach(), prog_bar=True)
 
         return loss
 
@@ -382,6 +386,7 @@ class GlobalSpeciesHeadNCF(pl.LightningModule):
         loss = self.loss_fn(logits, labels)
 
         self.log("loss_val", loss, prog_bar=True)
+        self.log("alpha_val", self.alpha.detach(), prog_bar=False)
 
         return loss
 
@@ -513,7 +518,11 @@ def predict_all_pairs(model, X, species_ids, num_items, batch_size=128):
 
             end = min(start + batch_size, n_samples)
 
-            maldi_batch = torch.tensor(X[start:end]).float().to(device)
+            maldi_batch = torch.tensor(
+                X[start:end],
+                dtype=torch.float32,
+                device=device
+            )
 
             species_batch = torch.tensor(
                 species_ids[start:end],
@@ -713,13 +722,13 @@ print("Total features:", num_feat, flush=True)
 print("Total antibiotics:", num_antibiotics_total, flush=True)
 print("Total species:", num_species, flush=True)
 
-print("\nSpecies distribution:")
+print("\nSpecies distribution:", flush=True)
 unique_sp_ids, sp_counts = np.unique(species_ids_all, return_counts=True)
 
 for sp_id, c in zip(unique_sp_ids, sp_counts):
     print(f"{id_to_species[int(sp_id)]}: {c} samples", flush=True)
 
-print("\nHospital/source distribution:")
+print("\nHospital/source distribution:", flush=True)
 unique_hospitals, hospital_counts = np.unique(hospital_all, return_counts=True)
 
 for h, c in zip(unique_hospitals, hospital_counts):
@@ -729,7 +738,11 @@ mapping_payload = {
     "species_to_id": {str(k): int(v) for k, v in species_to_id.items()},
     "id_to_species": {str(k): str(v) for k, v in id_to_species.items()},
     "antibiotics": [str(a) for a in antibiotics_all],
-    "modes": MALDI_HEAD_MODES,
+    "model": "implicit_species_hypernetwork",
+    "maldi_emb_dim": MALDI_EMB_DIM,
+    "species_emb_dim": SPECIES_EMB_DIM,
+    "drug_emb_dim": DRUG_EMB_DIM,
+    "hypernet_hidden_dim": HYPERNET_HIDDEN_DIM,
 }
 
 with open(OUTPUT_MAPPING_JSON, "w") as f:
@@ -739,7 +752,7 @@ print("\nSaved mappings to:", OUTPUT_MAPPING_JSON, flush=True)
 
 
 # ============================================================
-# 5-FOLD TRAINING FOR BOTH MODES
+# 5-FOLD TRAINING
 # ============================================================
 
 kf = KFold(
@@ -754,190 +767,198 @@ antibiotic_results = []
 
 sample_indices = np.arange(n_samples)
 
-for model_mode in MALDI_HEAD_MODES:
+MODEL_MODE = "implicit_species_hypernetwork"
 
-    print("\n##################################################", flush=True)
-    print(f"RUNNING MODEL MODE: {model_mode}", flush=True)
-    print("##################################################", flush=True)
+print("\n##################################################", flush=True)
+print(f"RUNNING MODEL MODE: {MODEL_MODE}", flush=True)
+print("##################################################", flush=True)
 
-    for fold, (train_idx, val_idx) in enumerate(kf.split(sample_indices)):
+for fold, (train_idx, val_idx) in enumerate(kf.split(sample_indices)):
 
-        print("\n==================================================", flush=True)
-        print(f"MODE: {model_mode} | FOLD {fold + 1}/{N_SPLITS}", flush=True)
-        print("==================================================", flush=True)
+    print("\n==================================================", flush=True)
+    print(f"MODE: {MODEL_MODE} | FOLD {fold + 1}/{N_SPLITS}", flush=True)
+    print("==================================================", flush=True)
 
-        X_train_source = X_all[train_idx]
-        X_val_source = X_all[val_idx]
+    X_train_source = X_all[train_idx]
+    X_val_source = X_all[val_idx]
 
-        species_train_source = species_ids_all[train_idx]
-        species_val_source = species_ids_all[val_idx]
+    species_train_source = species_ids_all[train_idx]
+    species_val_source = species_ids_all[val_idx]
 
-        amr_train_source = amr_all[train_idx]
-        amr_val_source = amr_all[val_idx]
+    amr_train_source = amr_all[train_idx]
+    amr_val_source = amr_all[val_idx]
 
-        print("Train samples:", X_train_source.shape[0], flush=True)
-        print("Validation samples:", X_val_source.shape[0], flush=True)
+    print("Train samples:", X_train_source.shape[0], flush=True)
+    print("Validation samples:", X_val_source.shape[0], flush=True)
 
-        valid_cols = select_valid_antibiotics(
-            amr_train=amr_train_source,
-            amr_val=amr_val_source
-        )
+    valid_cols = select_valid_antibiotics(
+        amr_train=amr_train_source,
+        amr_val=amr_val_source
+    )
 
-        if len(valid_cols) == 0:
-            print("Skipping fold: no valid antibiotics", flush=True)
-            continue
+    if len(valid_cols) == 0:
+        print("Skipping fold: no valid antibiotics", flush=True)
+        continue
 
-        selected_antibiotics = antibiotics_all[valid_cols]
+    selected_antibiotics = antibiotics_all[valid_cols]
 
-        X_train = np.asarray(X_train_source)
-        X_val = np.asarray(X_val_source)
+    X_train = np.asarray(X_train_source)
+    X_val = np.asarray(X_val_source)
 
-        species_train = np.asarray(species_train_source)
-        species_val = np.asarray(species_val_source)
+    species_train = np.asarray(species_train_source)
+    species_val = np.asarray(species_val_source)
 
-        amr_train = amr_train_source[:, valid_cols]
-        amr_val = amr_val_source[:, valid_cols]
+    amr_train = amr_train_source[:, valid_cols]
+    amr_val = amr_val_source[:, valid_cols]
 
-        num_items = amr_train.shape[1]
+    num_items = amr_train.shape[1]
 
-        print("Valid antibiotics:", num_items, flush=True)
-        print("Antibiotics:", list(selected_antibiotics), flush=True)
+    print("Valid antibiotics:", num_items, flush=True)
+    print("Antibiotics:", list(selected_antibiotics), flush=True)
 
-        train_dataset = GlobalRecDataset(
-            X=X_train,
-            species_ids=species_train,
-            amr=amr_train
-        )
+    train_dataset = GlobalRecDataset(
+        X=X_train,
+        species_ids=species_train,
+        amr=amr_train
+    )
 
-        val_dataset = GlobalRecDataset(
-            X=X_val,
-            species_ids=species_val,
-            amr=amr_val
-        )
+    val_dataset = GlobalRecDataset(
+        X=X_val,
+        species_ids=species_val,
+        amr=amr_val
+    )
 
-        if len(train_dataset) == 0:
-            print("Skipping fold: empty train dataset", flush=True)
-            continue
+    if len(train_dataset) == 0:
+        print("Skipping fold: empty train dataset", flush=True)
+        continue
 
-        if len(val_dataset) == 0:
-            print("Skipping fold: empty val dataset", flush=True)
-            continue
+    if len(val_dataset) == 0:
+        print("Skipping fold: empty val dataset", flush=True)
+        continue
 
-        print("Train pairs:", len(train_dataset), flush=True)
-        print("Validation pairs:", len(val_dataset), flush=True)
+    print("Train pairs:", len(train_dataset), flush=True)
+    print("Validation pairs:", len(val_dataset), flush=True)
 
-        loader_train = make_loader(
-            dataset=train_dataset,
-            batch_size=BATCH_SIZE,
-            shuffle=True
-        )
+    loader_train = make_loader(
+        dataset=train_dataset,
+        batch_size=BATCH_SIZE,
+        shuffle=True
+    )
 
-        loader_val = make_loader(
-            dataset=val_dataset,
-            batch_size=VAL_BATCH_SIZE,
-            shuffle=False
-        )
+    loader_val = make_loader(
+        dataset=val_dataset,
+        batch_size=VAL_BATCH_SIZE,
+        shuffle=False
+    )
 
-        model = GlobalSpeciesHeadNCF(
-            num_feat=num_feat,
-            num_items=num_items,
-            num_species=num_species,
-            maldi_head_mode=model_mode,
-            drug_emb_dim=DRUG_EMB_DIM,
-            species_emb_dim=SPECIES_EMB_DIM,
-            hidden_dims=HIDDEN_DIMS,
-            lr=LR
-        )
+    model = GlobalImplicitSpeciesNCF(
+        num_feat=num_feat,
+        num_items=num_items,
+        num_species=num_species,
+        maldi_emb_dim=MALDI_EMB_DIM,
+        drug_emb_dim=DRUG_EMB_DIM,
+        species_emb_dim=SPECIES_EMB_DIM,
+        hypernet_hidden_dim=HYPERNET_HIDDEN_DIM,
+        hidden_dims=HIDDEN_DIMS,
+        lr=LR
+    )
 
-        if model_mode == "species_only":
-            fusion_dim = 32 + SPECIES_EMB_DIM + DRUG_EMB_DIM
-        else:
-            fusion_dim = 64 + SPECIES_EMB_DIM + DRUG_EMB_DIM
+    fusion_dim = MALDI_EMB_DIM + SPECIES_EMB_DIM + DRUG_EMB_DIM
 
-        print("Fusion input dim:", fusion_dim, flush=True)
+    print("Fusion input dim:", fusion_dim, flush=True)
+    print("Initial alpha:", float(model.alpha.detach().cpu()), flush=True)
 
-        trainer = pl.Trainer(
-            max_epochs=MAX_EPOCHS,
-            accelerator="cpu",
-            devices=1,
-            callbacks=[
-                EarlyStopping(
-                    monitor="loss_val",
-                    patience=PATIENCE,
-                    mode="min"
-                )
-            ],
-            logger=False,
-            enable_checkpointing=False,
-            enable_progress_bar=True
-        )
+    trainer = pl.Trainer(
+        max_epochs=MAX_EPOCHS,
+        accelerator="cpu",
+        devices=1,
+        callbacks=[
+            EarlyStopping(
+                monitor="loss_val",
+                patience=PATIENCE,
+                mode="min"
+            )
+        ],
+        logger=False,
+        enable_checkpointing=False,
+        enable_progress_bar=True
+    )
 
-        trainer.fit(model, loader_train, loader_val)
+    trainer.fit(model, loader_train, loader_val)
 
-        preds_val = predict_all_pairs(
-            model=model,
-            X=X_val,
-            species_ids=species_val,
-            num_items=num_items,
-            batch_size=128
-        )
+    print("Final alpha:", float(model.alpha.detach().cpu()), flush=True)
 
-        auc_global, auc_macro_antibiotic, antibiotic_aucs = compute_global_metrics(
-            y_true=amr_val,
-            preds=preds_val
-        )
+    print("Predicting all validation sample-antibiotic pairs...", flush=True)
 
-        print("Fold global/micro AUC:", auc_global, flush=True)
-        print("Fold macro antibiotic AUC:", auc_macro_antibiotic, flush=True)
+    preds_val = predict_all_pairs(
+        model=model,
+        X=X_val,
+        species_ids=species_val,
+        num_items=num_items,
+        batch_size=128
+    )
 
-        fold_results.append(
-            {
-                "model_mode": model_mode,
-                "fold": fold,
-                "n_train_samples": X_train.shape[0],
-                "n_val_samples": X_val.shape[0],
-                "n_antibiotics": num_items,
-                "n_train_pairs": len(train_dataset),
-                "n_val_pairs": len(val_dataset),
-                "fusion_input_dim": fusion_dim,
-                "global_auc": auc_global,
-                "macro_antibiotic_auc": auc_macro_antibiotic,
-                "antibiotics": ";".join(map(str, selected_antibiotics))
-            }
-        )
+    auc_global, auc_macro_antibiotic, antibiotic_aucs = compute_global_metrics(
+        y_true=amr_val,
+        preds=preds_val
+    )
 
-        species_rows = compute_per_species_metrics(
-            model_mode=model_mode,
-            fold=fold,
-            y_true=amr_val,
-            preds=preds_val,
-            species_ids=species_val,
-            id_to_species=id_to_species
-        )
+    print("Fold global/micro AUC:", auc_global, flush=True)
+    print("Fold macro antibiotic AUC:", auc_macro_antibiotic, flush=True)
 
-        species_results.extend(species_rows)
+    fold_results.append(
+        {
+            "model_mode": MODEL_MODE,
+            "fold": fold,
+            "n_train_samples": X_train.shape[0],
+            "n_val_samples": X_val.shape[0],
+            "n_antibiotics": num_items,
+            "n_train_pairs": len(train_dataset),
+            "n_val_pairs": len(val_dataset),
+            "fusion_input_dim": fusion_dim,
+            "maldi_emb_dim": MALDI_EMB_DIM,
+            "species_emb_dim": SPECIES_EMB_DIM,
+            "drug_emb_dim": DRUG_EMB_DIM,
+            "hypernet_hidden_dim": HYPERNET_HIDDEN_DIM,
+            "final_alpha": float(model.alpha.detach().cpu()),
+            "global_auc": auc_global,
+            "macro_antibiotic_auc": auc_macro_antibiotic,
+            "antibiotics": ";".join(map(str, selected_antibiotics))
+        }
+    )
 
-        antibiotic_rows = compute_per_antibiotic_metrics(
-            model_mode=model_mode,
-            fold=fold,
-            y_true=amr_val,
-            preds=preds_val,
-            selected_antibiotics=selected_antibiotics
-        )
+    species_rows = compute_per_species_metrics(
+        model_mode=MODEL_MODE,
+        fold=fold,
+        y_true=amr_val,
+        preds=preds_val,
+        species_ids=species_val,
+        id_to_species=id_to_species
+    )
 
-        antibiotic_results.extend(antibiotic_rows)
+    species_results.extend(species_rows)
 
-        del model
-        del trainer
-        del loader_train
-        del loader_val
-        del train_dataset
-        del val_dataset
+    antibiotic_rows = compute_per_antibiotic_metrics(
+        model_mode=MODEL_MODE,
+        fold=fold,
+        y_true=amr_val,
+        preds=preds_val,
+        selected_antibiotics=selected_antibiotics
+    )
 
-        gc.collect()
+    antibiotic_results.extend(antibiotic_rows)
 
-        if torch.cuda.is_available():
-            torch.cuda.empty_cache()
+    del model
+    del trainer
+    del loader_train
+    del loader_val
+    del train_dataset
+    del val_dataset
+
+    gc.collect()
+
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
 
 # ============================================================
@@ -949,28 +970,26 @@ df_species = pd.DataFrame(species_results)
 df_antibiotics = pd.DataFrame(antibiotic_results)
 
 print("\n==================================================")
-print("FINAL RESULTS")
+print("FINAL FOLD RESULTS")
 print("==================================================")
 print(df_folds)
 
 if len(df_folds) > 0:
-    summary_rows = []
 
-    for model_mode in MALDI_HEAD_MODES:
-        df_mode = df_folds[df_folds["model_mode"] == model_mode]
-
-        summary_rows.append(
+    df_summary = pd.DataFrame(
+        [
             {
-                "model_mode": model_mode,
-                "mean_global_auc": df_mode["global_auc"].mean(),
-                "std_global_auc": df_mode["global_auc"].std(),
-                "mean_macro_antibiotic_auc": df_mode["macro_antibiotic_auc"].mean(),
-                "std_macro_antibiotic_auc": df_mode["macro_antibiotic_auc"].std(),
-                "n_folds": len(df_mode)
+                "model_mode": MODEL_MODE,
+                "mean_global_auc": df_folds["global_auc"].mean(),
+                "std_global_auc": df_folds["global_auc"].std(),
+                "mean_macro_antibiotic_auc": df_folds["macro_antibiotic_auc"].mean(),
+                "std_macro_antibiotic_auc": df_folds["macro_antibiotic_auc"].std(),
+                "mean_final_alpha": df_folds["final_alpha"].mean(),
+                "std_final_alpha": df_folds["final_alpha"].std(),
+                "n_folds": len(df_folds)
             }
-        )
-
-    df_summary = pd.DataFrame(summary_rows)
+        ]
+    )
 
     print("\n==================================================")
     print("SUMMARY")
