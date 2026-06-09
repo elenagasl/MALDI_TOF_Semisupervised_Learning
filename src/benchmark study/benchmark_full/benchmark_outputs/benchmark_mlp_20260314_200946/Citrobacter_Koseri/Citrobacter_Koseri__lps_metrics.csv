@@ -1,9 +1,0 @@
-antibiotic,acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible,status
-Amikacin,,,,,,133,0,133,constant_ground_truth
-Cefepime,,,,,,133,0,133,constant_ground_truth
-Ceftazidime,,,,,,133,0,133,constant_ground_truth
-Ciprofloxacin,,,,,,133,0,133,constant_ground_truth
-Colistin,,,,,,133,0,133,constant_ground_truth
-Ertapenem,,,,,,133,0,133,constant_ground_truth
-Meropenem,,,,,,133,0,133,constant_ground_truth
-Tobramycin,,,,,,133,0,133,constant_ground_truth

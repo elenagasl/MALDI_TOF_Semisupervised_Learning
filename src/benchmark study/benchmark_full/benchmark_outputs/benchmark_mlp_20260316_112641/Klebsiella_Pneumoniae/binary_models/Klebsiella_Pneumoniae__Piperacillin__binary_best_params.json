@@ -1,8 +1,0 @@
-{
-  "activation": "logistic",
-  "solver": "sgd",
-  "learning_rate": 0.006312542764462975,
-  "layer1": 366,
-  "layer2": 124,
-  "layer3": 360
-}

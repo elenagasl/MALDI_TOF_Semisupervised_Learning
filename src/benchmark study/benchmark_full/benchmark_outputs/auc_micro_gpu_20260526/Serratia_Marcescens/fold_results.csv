@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Serratia_Marcescens,Serratia Marcescens,0,716,180,5,5,0.8531382804838182,0.8797259983007646,0.8585386576040781,0.8613455184710572,0.7027493675275948,0.6817316647722387
-Serratia_Marcescens,Serratia Marcescens,1,716,180,5,5,0.8337283425956195,0.9057322642310959,0.8797259983007646,0.804456733133996,0.7670777096271827,0.716492170456181

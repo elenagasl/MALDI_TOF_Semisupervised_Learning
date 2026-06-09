@@ -1,3 +1,0 @@
-model_mode,mean_global_auc,std_global_auc,mean_macro_antibiotic_auc,std_macro_antibiotic_auc,mean_final_alpha,std_final_alpha,n_folds
-enriched_species_only_head,0.9263011892287206,0.002346374260362956,0.8503670195246423,0.008455155947740798,,,5
-enriched_implicit_hypernetwork,0.924845357700867,0.0015966318291682651,0.8538249151972874,0.010909352159212822,0.015782474935986102,0.012705554407279397,5

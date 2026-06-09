@@ -1,9 +1,0 @@
-{
-  "train_size": 530,
-  "test_size": 133,
-  "n_train_patterns": 1,
-  "n_test_patterns": 1,
-  "pattern_to_index": {
-    "00000000": 0
-  }
-}

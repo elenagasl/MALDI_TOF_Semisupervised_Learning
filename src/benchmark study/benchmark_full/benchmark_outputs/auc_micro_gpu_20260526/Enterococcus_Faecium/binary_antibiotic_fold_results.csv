@@ -1,9 +1,0 @@
-species,species_pretty,fold,antibiotic,auc,n_train,n_test
-Enterococcus_Faecium,Enterococcus Faecium,0,Imipenem,0.9368331199317115,896,224
-Enterococcus_Faecium,Enterococcus Faecium,0,Levofloxacin,0.9902173913043478,896,224
-Enterococcus_Faecium,Enterococcus Faecium,0,Teicoplanin,0.9793577981651376,896,224
-Enterococcus_Faecium,Enterococcus Faecium,0,Vancomycin,0.9605392156862745,896,224
-Enterococcus_Faecium,Enterococcus Faecium,1,Imipenem,0.9795134443021767,896,224
-Enterococcus_Faecium,Enterococcus Faecium,1,Levofloxacin,0.9793478260869565,896,224
-Enterococcus_Faecium,Enterococcus Faecium,1,Teicoplanin,0.9510703363914373,896,224
-Enterococcus_Faecium,Enterococcus Faecium,1,Vancomycin,0.9720588235294119,896,224

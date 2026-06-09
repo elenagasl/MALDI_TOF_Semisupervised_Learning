@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Citrobacter_Koseri,Citrobacter Koseri,0,530,133,8,1,,,,,,
-Citrobacter_Koseri,Citrobacter Koseri,1,530,133,8,1,,,,,,

@@ -1,9 +1,0 @@
-species,model,antibiotic,status,acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible
-Citrobacter_Koseri,binary,Amikacin,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Cefepime,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Ceftazidime,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Ciprofloxacin,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Colistin,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Ertapenem,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Meropenem,skipped_single_class,,,,,,133,0,133
-Citrobacter_Koseri,binary,Tobramycin,skipped_single_class,,,,,,133,0,133

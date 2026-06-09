@@ -1,9 +1,0 @@
-species,model,antibiotic,status,acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible,cv_best_wf1,val_best_wf1,best_epoch
-Klebsiella_Variicola,binary,Cefepime,skipped_single_class,,,,,,105,0,105,,,
-Klebsiella_Variicola,binary,Ceftazidime,skipped_single_class,,,,,,105,0,105,,,
-Klebsiella_Variicola,binary,Ceftriaxone,skipped_single_class,,,,,,105,0,105,,,
-Klebsiella_Variicola,binary,Ciprofloxacin,skipped_single_class,,,,,,105,0,105,,,
-Klebsiella_Variicola,binary,Colistin,skipped_single_class,,,,,,105,0,105,,,
-Klebsiella_Variicola,binary,Cotrimoxazole,ok,0.9714285714285714,0.02857142857142857,0.9573498964803312,0.9436734693877551,0.9714285714285714,105,3,102,0.9644291451520366,0.9644291451520366,5.0
-Klebsiella_Variicola,binary,Ertapenem,skipped_single_class,,,,,,105,0,105,,,
-Klebsiella_Variicola,binary,Levofloxacin,skipped_single_class,,,,,,105,0,105,,,

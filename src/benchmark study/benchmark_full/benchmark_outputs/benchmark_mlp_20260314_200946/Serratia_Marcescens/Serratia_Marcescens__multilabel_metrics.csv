@@ -1,6 +1,0 @@
-acc,hl,wf1,precision_weighted,recall_weighted,n_samples,n_resistant,n_susceptible,antibiotic,status
-0.8353658536585366,0.16463414634146342,0.8322423839452983,0.8298289879450518,0.8353658536585366,164,32,132,Amikacin,ok
-,,,,,164,0,164,Ceftazidime,constant_ground_truth
-,,,,,164,0,164,Ceftriaxone,constant_ground_truth
-0.9695121951219512,0.03048780487804878,0.9645742538930091,0.9638691107407968,0.9695121951219512,164,6,158,Ciprofloxacin,ok
-,,,,,164,0,164,Imipenem,constant_ground_truth

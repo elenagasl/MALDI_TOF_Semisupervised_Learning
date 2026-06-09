@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Staphylococcus_Aureus,Staphylococcus Aureus,0,2476,620,21,25,0.9244662807478392,0.9382199510719536,0.9417806510388376,0.8647694654987039,0.808443573089507,0.8613409144244224
-Staphylococcus_Aureus,Staphylococcus Aureus,1,2476,620,21,25,0.9170418294930627,0.9415167694399976,0.9367711154364192,0.8740813971685149,0.8559457419835137,0.8576361554645726

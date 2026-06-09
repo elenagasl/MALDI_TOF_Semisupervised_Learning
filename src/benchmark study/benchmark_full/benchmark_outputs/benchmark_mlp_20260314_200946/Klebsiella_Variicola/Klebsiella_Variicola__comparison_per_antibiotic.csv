@@ -1,9 +1,0 @@
-species,antibiotic,binary_acc,binary_hl,binary_wf1,lps_acc,lps_hl,lps_wf1,multilabel_acc,multilabel_hl,multilabel_wf1
-Klebsiella_Variicola,Cefepime,,,,,,,,,
-Klebsiella_Variicola,Ceftazidime,,,,,,,,,
-Klebsiella_Variicola,Ceftriaxone,,,,,,,,,
-Klebsiella_Variicola,Ciprofloxacin,,,,,,,,,
-Klebsiella_Variicola,Colistin,,,,,,,,,
-Klebsiella_Variicola,Cotrimoxazole,0.9714285714285714,0.02857142857142857,0.9573498964803312,0.9714285714285714,0.02857142857142857,0.9573498964803312,0.9714285714285714,0.02857142857142857,0.9573498964803312
-Klebsiella_Variicola,Ertapenem,,,,,,,,,
-Klebsiella_Variicola,Levofloxacin,,,,,,,,,

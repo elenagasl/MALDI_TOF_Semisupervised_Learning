@@ -1,7 +1,0 @@
-species,species_pretty,fold,antibiotic,auc,n_train,n_test
-Klebsiella_Oxytoca,Klebsiella Oxytoca,0,Amoxicillin-Clavulanic acid,0.6910569105691057,544,136
-Klebsiella_Oxytoca,Klebsiella Oxytoca,0,Ceftriaxone,0.8801282051282051,544,136
-Klebsiella_Oxytoca,Klebsiella Oxytoca,0,Cotrimoxazole,0.5,544,136
-Klebsiella_Oxytoca,Klebsiella Oxytoca,1,Amoxicillin-Clavulanic acid,0.6832395247029394,544,136
-Klebsiella_Oxytoca,Klebsiella Oxytoca,1,Ceftriaxone,0.7480769230769231,544,136
-Klebsiella_Oxytoca,Klebsiella Oxytoca,1,Cotrimoxazole,0.7201492537313432,544,136

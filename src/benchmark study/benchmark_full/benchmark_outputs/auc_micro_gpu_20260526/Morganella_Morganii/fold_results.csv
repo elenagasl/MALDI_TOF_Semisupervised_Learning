@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Morganella_Morganii,Morganella Morganii,0,461,116,7,7,0.8300525223992585,0.931664571261119,0.9372607220168829,0.8085062879082363,0.733057025545536,0.7749877070204281
-Morganella_Morganii,Morganella Morganii,1,461,116,7,7,0.8086757587794794,0.9425969164453099,0.9119267962982218,0.7701011558613999,0.8100785154707962,0.6504934242773166

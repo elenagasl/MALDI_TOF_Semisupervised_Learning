@@ -1,8 +1,0 @@
-{
-  "activation": "relu",
-  "solver": "sgd",
-  "learning_rate": 0.008122950817921958,
-  "layer1": 268,
-  "layer2": 301,
-  "layer3": 269
-}

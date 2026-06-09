@@ -1,9 +1,0 @@
-{
-  "species": "Pseudomonas_Aeruginosa",
-  "model": "binary",
-  "n_antibiotics": 10,
-  "n_antibiotics_evaluable": 9,
-  "mean_acc": 0.9343434343434345,
-  "mean_hl": 0.06565656565656566,
-  "mean_wf1": 0.922931904398783
-}

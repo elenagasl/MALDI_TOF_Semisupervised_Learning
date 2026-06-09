@@ -1,9 +1,0 @@
-{
-  "species": "Proteus_Mirabilis",
-  "model": "binary",
-  "n_antibiotics": 12,
-  "n_antibiotics_evaluable": 6,
-  "mean_acc": 0.6950904392764858,
-  "mean_hl": 0.3049095607235142,
-  "mean_wf1": 0.6884233350970695
-}

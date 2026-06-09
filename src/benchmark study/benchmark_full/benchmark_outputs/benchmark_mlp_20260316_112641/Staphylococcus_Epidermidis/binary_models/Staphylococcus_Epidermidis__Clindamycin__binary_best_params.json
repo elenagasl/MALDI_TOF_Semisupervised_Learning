@@ -1,8 +1,0 @@
-{
-  "activation": "identity",
-  "solver": "adam",
-  "learning_rate": 2.9668327567078264e-06,
-  "layer1": 35,
-  "layer2": 234,
-  "layer3": 87
-}

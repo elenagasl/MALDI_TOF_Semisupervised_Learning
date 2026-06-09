@@ -1,9 +1,0 @@
-{
-  "species": "Klebsiella_Pneumoniae",
-  "model": "binary",
-  "n_antibiotics": 20,
-  "n_antibiotics_evaluable": 18,
-  "mean_acc": 0.8910614525139666,
-  "mean_hl": 0.10893854748603352,
-  "mean_wf1": 0.8819045963553546
-}

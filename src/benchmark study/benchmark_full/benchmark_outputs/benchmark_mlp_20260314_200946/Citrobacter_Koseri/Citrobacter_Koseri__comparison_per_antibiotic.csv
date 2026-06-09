@@ -1,9 +1,0 @@
-species,antibiotic,binary_acc,binary_hl,binary_wf1,lps_acc,lps_hl,lps_wf1,multilabel_acc,multilabel_hl,multilabel_wf1
-Citrobacter_Koseri,Amikacin,,,,,,,,,
-Citrobacter_Koseri,Cefepime,,,,,,,,,
-Citrobacter_Koseri,Ceftazidime,,,,,,,,,
-Citrobacter_Koseri,Ciprofloxacin,,,,,,,,,
-Citrobacter_Koseri,Colistin,,,,,,,,,
-Citrobacter_Koseri,Ertapenem,,,,,,,,,
-Citrobacter_Koseri,Meropenem,,,,,,,,,
-Citrobacter_Koseri,Tobramycin,,,,,,,,,

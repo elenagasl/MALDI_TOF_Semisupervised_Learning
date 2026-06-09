@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Enterobacter_Cloacae,Enterobacter Cloacae,0,856,214,12,9,0.842830174398155,0.9054586353781531,0.8994650137754636,0.8003696941322422,0.7406174431508799,0.7775438371735982
-Enterobacter_Cloacae,Enterobacter Cloacae,1,856,214,12,9,0.8286383408800495,0.8969319070322694,0.8620233775907615,0.807679904298073,0.7626369372695451,0.7527650357425001

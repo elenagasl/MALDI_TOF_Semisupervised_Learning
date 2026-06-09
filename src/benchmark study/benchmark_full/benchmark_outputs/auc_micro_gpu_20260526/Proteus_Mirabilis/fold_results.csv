@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Proteus_Mirabilis,Proteus Mirabilis,0,516,129,12,11,0.6312315144241074,0.9222161114344622,0.8903412285807297,0.7027354849170582,0.6936326562108732,0.5172808142322939
-Proteus_Mirabilis,Proteus Mirabilis,1,516,129,12,11,0.6631188649320588,0.9279464135978456,0.8809941895451272,0.704912215971344,0.7057321774299369,0.4804429036898106

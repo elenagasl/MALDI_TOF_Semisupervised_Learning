@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Klebsiella_Pneumoniae,Klebsiella Pneumoniae,0,1431,358,20,26,0.7790390711586586,0.92426317254897,0.9033860877419029,0.6924759449353213,0.7786642802197918,0.7327228791504162
-Klebsiella_Pneumoniae,Klebsiella Pneumoniae,1,1431,358,20,26,0.7776985099410838,0.9220588877730618,0.9097655131541272,0.7221670315421478,0.7201948079720112,0.7447697458144654

@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Klebsiella_Oxytoca,Klebsiella Oxytoca,0,544,136,9,4,0.5022148394241417,0.9362506432331869,0.8312947789257016,0.6903950385657702,0.7240170317891468,0.6982610400156815
-Klebsiella_Oxytoca,Klebsiella Oxytoca,1,544,136,9,4,0.7350805955457118,0.9144796738312947,0.9207536713771127,0.7171552338370685,0.6743308162128693,0.7159287987828215

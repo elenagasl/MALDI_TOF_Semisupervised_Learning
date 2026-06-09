@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Citrobacter_Freundii,Citrobacter Freundii,0,401,101,10,4,0.5177438840229538,0.9230898727784325,0.8422837353599,0.7677681589284606,0.7398235073150008,0.5863442165585276
-Citrobacter_Freundii,Citrobacter Freundii,1,401,101,10,4,0.7420215443471257,0.8958298261225078,0.8616194896707632,0.6903215795146119,0.5995388071095247,0.5816323306191774

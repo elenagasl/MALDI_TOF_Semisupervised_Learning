@@ -1,9 +1,0 @@
-{
-  "species": "Citrobacter_Freundii",
-  "model": "binary",
-  "n_antibiotics": 10,
-  "n_antibiotics_evaluable": 5,
-  "mean_acc": 0.885148514851485,
-  "mean_hl": 0.11485148514851487,
-  "mean_wf1": 0.8812679721079635
-}

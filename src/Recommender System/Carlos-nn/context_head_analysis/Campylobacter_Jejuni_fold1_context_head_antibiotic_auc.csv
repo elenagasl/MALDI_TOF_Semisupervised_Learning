@@ -1,7 +1,0 @@
-antibiotic_idx,antibiotic,auc,n_obs,n_pos,n_neg,resistance_rate
-0,Azithromycin,,22,0,22,0.0
-1,Cefalotin-Cefazolin,,22,22,0,1.0
-2,Ciprofloxacin,0.7433797642736873,233,139,94,0.5965665236051502
-3,Clarithromycin,,22,0,22,0.0
-4,Erythromycin,0.6640350877192982,233,5,228,0.02145922746781116
-5,Tetracycline,0.6488095238095238,26,12,14,0.46153846153846156

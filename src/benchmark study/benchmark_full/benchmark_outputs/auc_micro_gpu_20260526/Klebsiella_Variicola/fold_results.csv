@@ -1,3 +1,0 @@
-species,species_pretty,fold,n_train,n_test,n_antibiotics,n_lps_classes_train,binary_micro_auc,multilabel_micro_auc,lps_micro_auc,binary_macro_auc,multilabel_macro_auc,lps_macro_auc
-Klebsiella_Variicola,Klebsiella Variicola,0,428,107,8,2,0.4935897435897436,0.8440797186400938,0.9546697928878468,0.4935897435897436,0.8958333333333333,0.6282051282051282
-Klebsiella_Variicola,Klebsiella Variicola,1,428,107,8,2,0.8141025641025641,0.48651817116060964,0.9374755763970302,0.8141025641025641,0.5064102564102564,0.48717948717948717
