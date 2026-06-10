@@ -354,12 +354,6 @@ Minimum thresholds for antibiotic inclusion: â‰¥ 50 training observations and â‰
 
 ---
 
-## Citation
-
-> Garcia-Arroyo E., et al. (2026). *A Progressive Benchmark for MALDI-TOF MS-Based Antimicrobial Resistance Prediction via Structured Deep Learning*. (Manuscript in preparation)
-
----
-
 ## License
 
 This project is released for academic use. Please contact the authors before using it in derivative commercial work.
