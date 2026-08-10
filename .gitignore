@@ -1,0 +1,41 @@
+# Track only source scripts and README documentation by default.
+*
+!*/
+!.gitignore
+!README.md
+!**/README.md
+!*.py
+!**/*.py
+
+# Python and local tooling artifacts.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Data, generated results, logs, and model artifacts.
+data/
+results/
+logs/
+checkpoints/
+outputs/
+*.csv
+*.tsv
+*.json
+*.npz
+*.npy
+*.pkl
+*.pickle
+*.pt
+*.pth
+*.ckpt
+*.log
+*.txt
+
+# Local OS/editor files.
+.DS_Store
+.idea/
+.vscode/
